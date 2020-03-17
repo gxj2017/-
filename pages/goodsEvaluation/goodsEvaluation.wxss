@@ -1,0 +1,159 @@
+/* pages/goodsEvaluation/goodsEvaluation.wxss */
+.goodsEvaluation{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f8f8f8;
+}
+.goodsEvaluation_main{
+  height: 100%;
+  flex: 1;
+  overflow-y: auto;
+}
+.goodsEvaluation_main_goods{
+  height: 180rpx;
+  padding: 30rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
+}
+.goodsEvaluation_main_goods_left{
+  width: 180rpx;
+  height: 180rpx;
+  border: 1px solid #f4f4f4;
+}
+.goodsEvaluation_main_goods_left image{
+  width: 100%;
+  height: 100%;
+}
+.goodsEvaluation_main_goods_right{
+  width: 480rpx;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.goodsEvaluation_main_goods_right .title{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  line-height: 48rpx;
+}
+.goodsEvaluation_main_goods_right .guige{
+  font-size: 28rpx;
+  color: #888;
+  line-height: 42rpx;
+}
+.goodsEvaluation_main_goods_right .price{
+  font-size: 28rpx;
+  color: #d93652;
+  line-height: 42rpx;
+}
+.goodsEvaluation_main_evaluation{
+  padding: 30rpx;
+  background: #fff;
+  border-top: 1px solid rgba(230, 230, 230, 1);
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
+}
+.goodsEvaluation_main_evaluation textarea{
+  height: 200rpx;
+}
+.goodsEvaluation_main_evaluation .notice{
+  font-size: 24rpx;
+  color: #888;
+  text-align: right;
+}
+.goodsEvaluation_main_pic{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.goodsEvaluation_main_pic .flex{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.goodsEvaluation_main_pic image{
+  width: 210rpx;
+  height: 180rpx;
+}
+.uploader_img .uploader_list{
+  width: 210rpx;
+  height: 180rpx;
+  margin-bottom: 30rpx;
+  margin-right: 20rpx;
+  position: relative;
+}
+.uploader_img .upAdd{
+  margin-bottom: 30rpx;
+  margin-right: 20rpx;
+}
+.uploader_img .uploader_list .updatedPic{
+  width: 100%;
+  height: 100%;
+}
+.uploader_list .delete{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+}
+.submitEvaluation_btn{
+  width: 580rpx;
+  height: 96rpx;
+  border-radius: 48rpx;
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 96rpx;
+  text-align: center;
+  background: #d93652;
+  margin: 0 auto;
+}
+
+/* 评价标签 */
+.evaluationTag{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  background: #fff;
+  border-top: 1px solid rgba(230, 230, 230, 1);
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
+}
+.evaluationTag_tagTitle{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.evaluationTag_content{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.evaluationTag_content_tagItem{
+  font-size: 28rpx;
+  color: #666;
+  height: 56rpx;
+  line-height: 56rpx;
+  border: 1px solid #666;
+  border-radius: 28rpx;
+  padding: 0rpx 20rpx;
+  margin-right: 30rpx;
+}
+.selectTag{
+  font-size: 28rpx;
+  color: #fff;
+  background:linear-gradient(-90deg,rgba(255,51,54,1),rgba(255,115,122,1));
+  border: 0rpx;
+}

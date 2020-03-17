@@ -1,0 +1,22 @@
+<!--pages/balance/balance.wxml-->
+<view class="balance_box">
+  <view class="balance">
+    <text>可提现余额</text>
+    <view class="Withdrawal">
+      <view class="Record">
+        <text>￥</text>
+        <text>320.00</text>
+      </view>
+      <view class="withdraw">
+        <text>提现</text>
+        <text class="iconfont icon-jiantou3"></text>
+      </view>
+    </view>
+  </view>
+  <view class="record">
+    <navigator url="/pages/WithdrawalRecord/WithdrawalRecord">
+      <text>提现记录</text>
+      <text class="iconfont icon-jiantou3"></text>
+    </navigator>
+  </view>
+</view>

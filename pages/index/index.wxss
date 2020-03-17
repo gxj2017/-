@@ -1,0 +1,256 @@
+.search {
+  padding: 36rpx 30rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.search input {
+  background: rgba(245, 245, 245, 1);
+  border: 1rpx solid rgba(209, 209, 209, 1);
+  border-radius: 31rpx;
+  height: 61rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: rgba(133, 133, 133, 1);
+}
+
+.slides {
+  width: 100%;
+  height: 280rpx;
+}
+
+.slides swiper-item {
+  width: 684rpx;
+  height: 100%;
+  padding: 0 10rpx;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+}
+
+.slides navigator {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.slides swiper-item image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+
+.grids {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30rpx 30rpx 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grids .item {
+  width: 25%;
+  padding: 0rpx 10rpx;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.grids .item image {
+  width: 70rpx;
+  height: 70rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.grids .item text {
+  display: block;
+  font-size: 26rpx;
+  font-weight: 500;
+  color: rgba(77, 77, 77, 1);
+  margin: 20rpx 0;
+}
+
+.inform_box {
+  width: 100%;
+  background-color: #fafafa;
+  padding: 20rpx 0;
+}
+
+.inform_box swiper{
+  height: 75rpx;
+}
+.inform {
+  height: 100%;
+  line-height: 74rpx;
+  background-color: #fff;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+}
+.inform navigator{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+.inform image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+  margin-top: 12rpx;
+}
+
+.inform text {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+}
+
+.inform text:nth-of-type(1) {
+  margin-right: 10rpx;
+}
+
+.product {
+  width: 100%;
+  background-color: #fff;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.navbar {
+  flex: none;
+  display: flex;
+  background: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 60rpx;
+}
+
+.navbar .item {
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 14px;
+  padding: 0 20rpx;
+  width: 150rpx!important;
+}
+
+/* 顶部导航字体颜色 */
+
+.navbar .item.active {
+  color: #e1007e;
+}
+
+/* 顶部指示条属性 */
+
+.navbar .item.active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5rpx;
+  background: #e1007e;
+  width: 70%;
+  margin: 0px auto;
+}
+
+.cells {
+  padding-left: 2rpx;
+  margin-top: 30rpx;
+  box-sizing: border-box;
+}
+.cells_item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.cells_item image{
+  width: 312rpx;
+  height: 312rpx;
+  border-radius: 8rpx;
+  background: #f4f4f4;
+}
+
+.cells navigator {
+  display: flex;
+  margin-bottom:20rpx; 
+}
+
+.cells navigator image {
+  width: 312rpx;
+  height: 312rpx;
+  margin-right: 32rpx;
+}
+
+.cells_text {
+  position: relative;
+  width: 340rpx;
+  height: 312rpx;
+}
+
+.cells_text .describe {
+  margin-top: 30rpx;
+  width: 340rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.price {
+  width: 100%;
+  display: flex;
+  align-items:center ;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 30rpx;
+  
+}
+
+.price text:nth-of-type(1) {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: rgba(217, 54, 82, 1);
+}
+
+.price text:nth-of-type(2) {
+  width: 117rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  background:linear-gradient(-89deg,rgb(228, 150, 150),rgba(255,51,54,1),rgba(255,115,122,1));
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}
+
+.price1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 30rpx;
+}
+.price1 text:nth-of-type(1) {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: rgba(217, 54, 82, 1);
+}
+
+.price1 text:nth-of-type(2) {
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  background:linear-gradient(-89deg,rgb(228, 150, 150),rgba(255,51,54,1),rgba(255,115,122,1));
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 20rpx;
+}

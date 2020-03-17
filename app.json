@@ -1,0 +1,80 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/impower/impower",
+    "pages/spellParticulars/spellParticulars",
+    "pages/myOrder/myOrder",
+    "pages/indentParticulars/indentParticulars",
+    "pages/distributionParticulars/distributionParticulars",
+    "pages/honoree/honoree",
+    "pages/addressManager/addressManager",
+    "pages/distributorPartner/distributorPartner",
+    "pages/ssuo/ssuo",
+    "pages/oneself/oneself",
+    "pages/myFavorite/myFavorite",
+    "pages/seckillParticulars/seckillParticulars",
+    "pages/seckill/seckill",
+    
+    "pages/auctionOrderForm/auctionOrderForm",
+    "pages/evaluateList/evaluateList",
+    "pages/addAddress/addAddress",
+    "pages/distributor/distributor",
+    "pages/distributorLog/distributorLog",
+    "pages/groupDetails/groupDetails",
+    "pages/group/group",
+    "pages/WithdrawalRecord/WithdrawalRecord",
+    "pages/balance/balance",
+    "pages/commission/commission",
+    "pages/task/task",
+    "pages/rankingList/rankingList",
+    "pages/clearanceSale/clearanceSale",
+    "pages/discount/discount",
+    "pages/specialSale/specialSale",
+    "pages/xiugeiaddress/xiugeiaddress",
+    "pages/payOrder/payOrder",
+    "pages/goodsEvaluation/goodsEvaluation"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "红酒商城",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#b0b0b0",
+    "selectedColor": "#D93652",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "index": 0,
+        "pagePath": "pages/index/index",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_pressed.png",
+        "text": "首页"
+      },
+      {
+        "index": 1,
+        "pagePath": "pages/group/group",
+        "iconPath": "images/group.png",
+        "selectedIconPath": "images/group_pressed.png",
+        "text": "我的团"
+      },
+      {
+        "index": 2,
+        "pagePath": "pages/distributor/distributor",
+        "iconPath": "images/distributor.png",
+        "selectedIconPath": "images/distributor_pressed.png",
+        "text": "我的分销"
+      },
+      {
+        "index": 3,
+        "pagePath": "pages/oneself/oneself",
+        "iconPath": "images/oneself.png",
+        "selectedIconPath": "images/oneself_pressed.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

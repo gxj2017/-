@@ -1,0 +1,114 @@
+<view class="navGroup" wx:if="{{language==1}}">
+  <text class="navItem {{currentTab==index?'active':''}}" wx:for="{{tabList}}" wx:key="{{index}}" bindtap="onTabsItem" data-id="{{index}}">{{item}}</text>
+</view>
+<view class="navGroup1" wx:if="{{language==2||language==3}}">
+  <view class="navItem navItem_en {{currentTab==index?'active':''}}" wx:for="{{tabList}}" wx:key="{{index}}" bindtap="onTabsItem" data-id="{{index}}">
+    {{item}}
+  </view>
+</view>
+<view class="orderBox" wx:if="{{language==1}}">
+  <view class="orderItem" wx:if="{{orderList.length !=0 }}">
+    <view class="item" wx:for="{{orderList}}" wx:key="{{item.id+index}}">
+      <view class="orderNum">
+        <text>订单编号：{{item.orderno}}</text>
+        <text wx:if="{{item.status==0}}" class='status'>{{btnAndStatus.unpay}}</text>
+        <text wx:if="{{item.status==1}}" class='status'>{{btnAndStatus.unsend}}</text>
+        <text wx:if="{{item.status==2}}" class='status'>{{btnAndStatus.sended}}</text>
+        <text wx:if="{{item.status==3}}" class='status'>{{btnAndStatus.unevulation}}</text>
+        <text wx:if="{{item.status==4}}" class='status'>{{btnAndStatus.complete}}</text>
+      </view>
+      <view bindtap="skiporderdetail"  data-orderid="{{item.id}}"  data-orderno="{{item.orderno}}" data-istihuo="{{item.is_tihuo}}">
+        <view class="imgInfo">
+          <image src="{{imgurl}}{{item.g_thumb}}"></image>
+          <view class="imgText">
+            <view class="imgText_title">
+              <text class="desc text_line_3">{{item.g_name}}</text>
+              <view class="price">￥{{item.singleprice}}</view>
+            </view>
+            <view class="pickup_way">
+              <text class="num">{{item.g_num}}件</text>
+              <text class="way" wx:if="{{item.is_tihuo==0}}">{{btnAndStatus.kuaidi}}</text>
+              <text class="way" wx:if="{{item.is_tihuo==1}}">{{btnAndStatus.tihuoway}}</text>
+              <text class="way" wx:elif="{{item.is_tihuo==2}}">{{btnAndStatus.pickup}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="count">
+        <text>共1件商品</text>
+        <text>合计：￥{{item.totalprice}}</text>
+      </view>
+      <view class="btnsBottom">
+        <view class='cancel' wx:if="{{item.status==0}}" data-orderid="{{item.id}}" catchtap="cancelOrder">{{btnAndStatus.quxiao}}</view>
+        <view class='cost' wx:if="{{item.status==0}}" data-orderitem="{{item}}" catchtap="payOrder">{{btnAndStatus.pay}}</view>
+        <!-- 代发货 -->
+        <view class='cancel' wx:if="{{item.status==1}}" catchtap="applicationForDrawback">{{btnAndStatus.tuikuanbtn}}</view>
+        <view class='cost' wx:if="{{item.status==1}}" catchtap="noticeSend">{{btnAndStatus.tixingfahuo}}</view>
+        <!-- 已发货 -->
+        <view class='cancel' wx:if="{{item.status==2}}" bindtap="checkwuliu">{{btnAndStatus.chakanwuliu}}</view>
+        <view class='cost' wx:if="{{item.status==2}}" data-orderid="{{item.id}}" catchtap="confirmOrder">{{btnAndStatus.confirm}}</view>
+        <!-- 代发货 -->
+        <view class='cancel' wx:if="{{item.status==3}}" data-orderid="{{item.id}}" catchtap="delOrder">{{btnAndStatus.delorder}}</view>
+        <view class='cost' wx:if="{{item.status==3}}" data-orderitem="{{item}}" catchtap="evaluation">{{btnAndStatus.evaluation}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="dataNull" wx:else>
+    <image src="/images/distributorPartner.png"></image>
+    <text>暂无数据</text>
+  </view>
+</view>
+<view class="orderBox" wx:elif="{{language==2||language==3}}">
+  <view class="orderItem" wx:if="{{orderList.length !=0 }}">
+    <view class="item1" wx:for="{{orderList}}" wx:key="{{item.id+index}}">
+      <view class="orderNum">
+        <text>订单编号：{{item.orderno}}</text>
+        <text wx:if="{{item.status==0&&item.is_tihuo==0}}" class='status'>{{btnAndStatus.unpay}}</text>
+        <text wx:elif="{{item.status==1&&item.is_tihuo==0}}" class='status'>{{btnAndStatus.unsend}}</text>
+        <text wx:elif="{{item.status==2&&item.is_tihuo==0}}" class='status'>{{btnAndStatus.sended}}</text>
+        <text wx:elif="{{item.status==3&&item.is_tihuo==0}}" class='status'>{{btnAndStatus.unevulation}}</text>
+        <text wx:elif="{{item.status==4&&item.is_tihuo==0}}" class='status'>{{btnAndStatus.complete}}</text>
+        <text wx:elif="{{item.is_tihuo==1}}" class='status'>{{btnAndStatus.notpickup}}</text>
+        <text wx:elif="{{item.is_tihuo==2}}" class='status'>{{btnAndStatus.pickup}}</text>
+      </view>
+      <view bindtap="skiporderdetail" data-orderid="{{item.id}}"  data-orderno="{{item.orderno}}"  data-istihuo="{{item.is_tihuo}}">
+        <view class="imgInfo">
+          <image src="{{imgurl}}{{item.g_thumb}}"></image>
+          <view class="imgText">
+            <view class="imgText_title">
+              <text class="desc text_line_3">{{item.g_name}}</text>
+              <view class="price">￥{{item.singleprice}}</view>
+            </view>
+            <view class="pickup_way">
+              <text class="num">{{item.g_num}}件</text>
+              <text class="way" wx:if="{{item.is_tihuo==0}}">{{btnAndStatus.kuaidi}}</text>
+              <text class="way" wx:if="{{item.is_tihuo==1}}">{{btnAndStatus.tihuoway}}</text>
+              <text class="way" wx:elif="{{item.is_tihuo==2}}">{{btnAndStatus.pickup}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="count">
+        <text>共1件商品</text>
+        <text>合计：￥{{item.totalprice}}</text>
+      </view>
+      <view class="btnsBottom1">
+        <view class='cancel cancel1' wx:if="{{item.status==0}}" data-orderid="{{item.id}}" catchtap="cancelOrder">{{btnAndStatus.quxiao}}</view>
+        <view class='cost cost' wx:if="{{item.status==0}}" data-orderitem="{{item}}" catchtap="payOrder">{{btnAndStatus.pay}}</view>
+        <!-- 代发货 -->
+        <view class='cancel cancel1' wx:if="{{item.status==1}}"  catchtap="applicationForDrawback">{{btnAndStatus.tuikuanbtn}}</view>
+        <view class='cost cost' wx:if="{{item.status==1}}" catchtap="noticeSend">{{btnAndStatus.tixingfahuo}}</view>
+        <!-- 已发货 -->
+        <view class='cancel cancel1' wx:if="{{item.status==2}}"  bindtap="checkwuliu">{{btnAndStatus.chakanwuliu}}</view>
+        <view class='cost cost' wx:if="{{item.status==2}}" data-orderid="{{item.id}}" catchtap="confirmOrder">{{btnAndStatus.confirm}}</view>
+        <!-- 代发货 -->
+        <view class='cancel cancel1' wx:if="{{item.status==3}}" data-orderid="{{item.id}}" catchtap="delOrder">{{btnAndStatus.delorder}}</view>
+        <view class='cost cost' wx:if="{{item.status==3}}" data-orderitem="{{item}}" catchtap="evaluation">{{btnAndStatus.evaluation}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="dataNull" wx:else>
+    <image src="/images/distributorPartner.png"></image>
+    <text>暂无数据</text>
+  </view>
+</view>

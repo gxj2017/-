@@ -1,0 +1,18 @@
+<!--pages/auction/auction.wxml-->
+<view class="auction_box">
+  <view class="auction_min" wx:for="{{auction}}" wx:key="id">
+    <view bindtap="auction" data-goodsid="{{item.g_id}}">
+      <view class="picImage">
+        <image mode="aspectFill" src="{{imgurl}}{{item.g_thumb}}"></image>
+      </view>
+      <text class="title"> {{item.g_name}}</text>
+      <view class="auction">
+        <view>
+          <text>¥{{item.pai_price}}</text>
+          <text>离结束： {{item.daojishi}}</text>
+        </view>
+        <button>立即拍卖</button>
+      </view>
+    </view>
+  </view>
+</view>

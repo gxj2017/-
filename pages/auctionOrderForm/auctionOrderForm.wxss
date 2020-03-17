@@ -1,0 +1,131 @@
+/* pages/auctionOrderForm/auctionOrderForm.wxss */
+
+.OrderForm {
+  padding: 30rpx;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.dizhi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 20rpx solid #fafafa;
+  padding-bottom: 30rpx;
+}
+
+.select_dizhi {
+  display: flex;
+  justify-content: space-between;
+}
+
+.select_dizhi image {
+  width: 23rpx;
+  height: 30rpx;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+}
+
+.consignee {
+  width: 600rpx;
+}
+
+.consignee .name {
+  display: flex;
+  justify-content: space-between;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.consignee>text {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: rgba(133, 133, 133, 1);
+}
+
+.details view {
+  display: flex;
+  justify-content: space-between;
+}
+.commodity{
+  padding: 30rpx 0rpx;
+}
+.commodity image {
+  width: 179rpx;
+  height: 178rpx;
+  border-radius: 4rpx;
+  border: 1px solid #f4f4f4;
+}
+
+.commodity text {
+  display: block;
+  width: 479rpx;
+  height: 66rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: rgba(33, 33, 33, 1);
+  line-height: 39rpx;
+}
+
+.price {
+  margin-top: 10rpx;
+  align-items: center;
+}
+
+.price >text {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: rgba(33, 33, 33, 1);
+}
+
+.price view text {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: rgba(217, 54, 82, 1);
+  margin-right: 10rpx;
+}
+
+.price input {
+  width: 142rpx;
+  height: 48rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 0px;
+  border-radius: 4rpx;
+  text-align: left;
+}
+
+.pay {
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 98rpx;
+  align-items: center;
+  border-top: 1rpx solid #E0E0E0;
+}
+
+.pay button {
+  width: 220rpx;
+  height: 100%;
+  background: rgba(217, 54, 82, 1);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  border: 0;
+  border-radius: 0;
+}
+
+.pay text {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.pay text:nth-of-type(2){
+  color:rgba(217,54,82,1);
+  margin: 0 40rpx 0 30rpx;
+}

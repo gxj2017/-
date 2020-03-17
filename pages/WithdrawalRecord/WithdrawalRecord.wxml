@@ -1,0 +1,100 @@
+<!--pages/WithdrawalRecord/WithdrawalRecord.wxml-->
+<view class="WithdrawalRecord_box">
+  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <view class="picker">{{date}}
+      <text class="iconfont icon-fanhui-copy-copy-copy-copy"></text>
+    </view>
+    <text class="money">提现￥560.00</text>
+  </picker>
+</view>
+
+<view class="withdraw">
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+  <view class="list">
+    <view class="title">
+      <text>提现</text>
+      <text>70.00</text>
+    </view>
+    <text class="time">8月2日 13:52</text>
+  </view>
+ 
+
+</view>

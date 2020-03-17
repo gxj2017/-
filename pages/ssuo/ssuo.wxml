@@ -1,0 +1,127 @@
+<!--pages/ssuo/ssuo.wxml-->
+<view class="searchpage" wx:if="{{language==1}}">
+  <view class="search">
+    <input type="" placeholder="搜索" bindinput="searchInput" value="{{search}}"></input>
+    <text bindtap="searchbtn">搜索</text>
+  </view>
+  <view class="product">
+    <view class="cells" wx:if="{{xxx}}">
+      <view class="cells_item" bindtap="skipDetail" data-fenxiao="{{true}}" data-goodsid="{{item.id}}" wx:for="{{commodity}}" wx:key="id">
+        <image src="{{imgurl}}{{item.g_thumb}}"></image>
+        <view class="cells_text">
+          <text class="describe text_line_3">{{item.g_name}}</text>
+          <view class="price">
+            <view class="joint">
+              <text class="one" wx:if="{{is_fenxiaoshang==0}}">拼团价￥{{item.kk_price}}</text>
+              <text class="one" wx:if="{{is_fenxiaoshang==1}}">￥{{item.price}}</text>
+              <text class="one" wx:if="{{is_fenxiaoshang==0}}">购买价{{item.g_price}}</text>
+              <!-- <text class="two" wx:if="{{is_fenxiaoshang==1}}">已销{{item.g_sellnum}}件</text> -->
+            </view>
+            <view class="btn">
+              <text class="three" wx:if="{{is_fenxiaoshang==1}}">立即购买</text>
+              <text class="three" wx:if="{{is_fenxiaoshang==1}}">立即分销</text>
+              <text class="three" wx:if="{{is_fenxiaoshang==0}}">立即拼团</text>
+              <text class="three" wx:if="{{is_fenxiaoshang==0}}">立即购买</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="history" wx:else>
+      <view class="title">
+        <text>搜索历史</text>
+        <view bindtap="eliminate">
+          <image src="../../images/shanchu.png"></image>
+          <text>清除历史记录</text>
+        </view>
+      </view>
+      <view class="noun">
+        <text wx:for="{{noun}}" wx:key="id">{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="searchpage" wx:elif="{{language==2}}">
+  <view class="search">
+    <input type="" placeholder="ricerca" bindinput="searchInput" value="{{search}}"></input>
+    <text bindtap="searchbtn">ricerca</text>
+  </view>
+  <view class="product">
+    <view class="cells" wx:if="{{xxx}}">
+      <view class="cells_item" bindtap="skipDetail" data-fenxiao="{{true}}" data-goodsid="{{item.id}}" wx:for="{{commodity}}" wx:key="id">
+        <image src="{{imgurl}}{{item.g_thumb}}"></image>
+        <view class="cells_text">
+          <text class="describe text_line_3">{{item.g_name}}</text>
+          <view class="price">
+            <view class="joint">
+              <text class="one" wx:if="{{is_fenxiaoshang==0}}">拼团价￥{{item.kk_price}}</text>
+              <text class="one" wx:if="{{is_fenxiaoshang==1}}">￥{{item.price}}</text>
+              <text class="one" wx:if="{{is_fenxiaoshang==0}}">购买价{{item.g_price}}</text>
+              <!-- <text class="two" wx:if="{{is_fenxiaoshang==1}}">已销{{item.g_sellnum}}件</text> -->
+            </view>
+            <view class="btn">
+              <text class="three" wx:if="{{is_fenxiaoshang==1}}">立即购买</text>
+              <text class="three" wx:if="{{is_fenxiaoshang==1}}">立即分销</text>
+              <text class="three" wx:if="{{is_fenxiaoshang==0}}">立即拼团</text>
+              <text class="three" wx:if="{{is_fenxiaoshang==0}}">立即购买</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="history" wx:else>
+      <view class="title">
+        <text>Ricerca di archivi storici</text>
+        <view bindtap="eliminate">
+          <image src="../../images/shanchu.png"></image>
+          <!-- <text>Chiusura dei registri storici</text> -->
+        </view>
+      </view>
+      <view class="noun">
+        <text wx:for="{{noun}}" wx:key="id">{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="searchpage" wx:if="{{language==3}}">
+  <view class="search">
+    <input type="" placeholder="search" bindinput="searchInput" value="{{search}}"></input>
+    <text bindtap="searchbtn">search</text>
+  </view>
+  <view class="product">
+    <view class="cells" wx:if="{{xxx}}">
+      <view class="cells_item" bindtap="skipDetail" data-fenxiao="{{true}}" data-goodsid="{{item.id}}" wx:for="{{commodity}}" wx:key="id">
+        <image src="{{imgurl}}{{item.g_thumb}}"></image>
+        <view class="cells_text">
+          <text class="describe text_line_3">{{item.g_name}}</text>
+          <view class="price">
+            <view class="joint">
+              <text class="one" wx:if="{{is_fenxiaoshang==0}}">拼团价￥{{item.kk_price}}</text>
+              <text class="one" wx:if="{{is_fenxiaoshang==1}}">￥{{item.price}}</text>
+              <text class="one" wx:if="{{is_fenxiaoshang==0}}">购买价{{item.g_price}}</text>
+              <text class="two" wx:if="{{is_fenxiaoshang==1}}">已销{{item.g_sellnum}}件</text>
+            </view>
+            <view class="btn">
+              <text class="three" wx:if="{{is_fenxiaoshang==1}}">立即购买</text>
+              <text class="three" wx:if="{{is_fenxiaoshang==1}}">立即分销</text>
+              <text class="three" wx:if="{{is_fenxiaoshang==0}}">立即拼团</text>
+              <text class="three" wx:if="{{is_fenxiaoshang==0}}">立即购买</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="history" wx:else>
+      <view class="title">
+        <text>Search history</text>
+        <view bindtap="eliminate">
+          <image src="../../images/shanchu.png"></image>
+          <text>Clear history</text>
+        </view>
+      </view>
+      <view class="noun">
+        <text wx:for="{{noun}}" wx:key="id">{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>

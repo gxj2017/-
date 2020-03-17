@@ -1,0 +1,153 @@
+<view class="page_container">
+  <view class="max_box">
+    <swiper class="slides" circular="true">
+      <swiper-item wx:for="{{particulars.g_imgs}}" wx:key="id">
+        <image src="{{imgurl}}{{item}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+    <view class="Particulars">
+      <text class="title">{{particulars.g_name}}</text>
+      <view class="price">
+        <view class="price_price">
+          <text class="xianjia" wx:if="{{particulars.type !=5}}">¥{{particulars.price||particulars.miao_price}}</text>
+          <text class="xianjia" wx:else>¥9.9</text>
+          <text class="yuanjia" wx:if="{{particulars.g_price}}">¥{{particulars.g_price}}</text>
+        </view>
+        <view class="amount">
+          <text class="yip" wx:if="{{particulars.type==2||particulars.type==4}}">剩余<text class="yip_shl">{{particulars.kucun-particulars.salenum}}</text>份</text>
+          <text class="yip" wx:else>剩余<text class="yip_shl">{{particulars.g_stock-particulars.g_sellnum}}</text>份</text>
+        </view>
+      </view>
+    </view>
+    <view class="select">
+      <view class="site_wm">
+        <text class="{{language==1?'one':'one1'}}">{{sellparticulars.address}}</text>
+        <text class="two"><text class="iconfont icon-ditu"></text>{{morengdizhi.receive_address}}</text>
+        <text class="three iconfont icon-jiantou3"></text>
+      </view>
+      <view class="specification" bindtap="guaige_but">
+        <text class="{{language==1?'one':'one1'}}">{{sellparticulars.guige}}</text>
+        <text class="two">{{productSpecification?productSpecification:sellparticulars.select_guige}}</text>
+        <text class="three iconfont icon-jiantou3"></text>
+      </view>
+      <view class="parameter" bindtap="put">
+        <text class="{{language==1?'one':'one1'}}">{{sellparticulars.canshu}}</text>
+        <text class="two">{{sellparticulars.lookgoodscanshu}}</text>
+        <text class="three iconfont icon-jiantou3"></text>
+      </view>
+    </view>
+    <view class="tk_box" hidden='{{popup}}'>
+      <view class="Product_Parameter">
+        <view class="shut" bindtap='hidePopup'>
+          <text class="iconfont icon-chahao"></text>
+        </view>
+        <text class="title">产品参数</text>
+        <view class="Product_data" wx:for="{{particulars.canshu}}" wx:key="index">
+          <text>{{item.title}}</text>
+          <text>{{item.neirong}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 规格 -->
+    <view class="tk_box" wx:if="{{guaigebox}}" bindtap="guaigeyinc_btn">
+      <view class="tk_box_pop">
+        <view class="site">
+          <view class="shut" catchtap="guaigeyinc_btn">
+            <text class="iconfont icon-chahao"></text>
+          </view>
+          <view class="commodity">
+            <image src="../../images/shangp1.png"></image>
+            <view>
+              <text wx:if="{{particulars.type !=3 && particulars.type !=5 }}">￥{{particulars.price}}</text>
+              <text wx:elif="{{particulars.type ==3 }}">￥{{particulars.miao_price}}</text>
+              <text wx:else>￥9.9</text>
+              <text>{{sellparticulars.select_guige}}</text>
+            </view>
+          </view>
+          <view class="commodity_Sp">
+            <text>{{sellparticulars.guige}}</text>
+            <view class="SpList">
+              <text>{{sellparticulars.guigecanshu}}</text>
+            </view>
+          </view>
+          <view class="select_sp">
+            <view class="left">
+              <text>{{sellparticulars.shuliang}}</text>
+              <text>{{productNum}}{{sellparticulars.jian}}</text>
+            </view>
+            <view class="right">
+              <text catchtap="numminus" data-index="{{index}}">-</text>
+              <input class="view_text_center" value="{{productNum}}" catchtap='input_num' data-index="{{index}}"></input>
+              <text catchtap='numadd' data-index="{{index}}">+</text>
+            </view>
+          </view>
+        </view>
+        <button catchtap="confirmSpecification">{{sellparticulars.comfirm}}</button>
+      </view>
+    </view>
+    <view class="evaluate_box" wx:if="{{goodsComment.commentShow}}">
+      <view class="evaluate">
+        <text class="sp">{{sellparticulars.goodsEvaluation}}({{goodsComment.count||0}})</text>
+        <view class="examine" wx:if="{{goodsComment.list>2}}">
+          <navigator url="/pages/evaluateList/evaluateList?goodsid={{goodsDetail.id}}" class="look">查看全部</navigator>
+          <text class="right iconfont icon-jiantou3"></text>
+        </view>
+      </view>
+      <view class="comment">
+        <text wx:for="{{goodsComment.biaoqian}}" wx:key="index">{{item.name}}({{item.num}})</text>
+      </view>
+      <view class="user_com">
+        <view class="user_text" wx:for="{{goodsComment.list}}" wx:key="index">
+          <view class="user_xinxi">
+            <view class="user_xinxi_user">
+              <image src="{{item.avatar}}"></image>
+              <text>{{item.username}}</text>
+            </view>
+            <text class="time">{{item.addtime}}</text>
+          </view>
+          <text class="text text_line_2">{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="image_text">
+      <text class="title">{{sellparticulars.tuwenDetail}}</text>
+      <view class="image_text_detail">
+        <import src="/wxParse/wxParse.wxml" />
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+      </view>
+    </view>
+  </view>
+  <view class="buy">
+    <view class="buy_left">
+      <button class="service" open-type="contact">
+        <image src="../../images/service.png"></image>
+        <text>{{sellparticulars.kefu}}</text>
+      </button>
+      <view class="collect" wx:if="{{mkfl!='miaosha'}}" bindtap="shoucang">
+        <image src="../../images/collect.png" wx:if="{{particulars.is_shoucang==0}}"></image>
+        <image src="../../images/collect1.png" wx:if="{{particulars.is_shoucang==1}}"></image>
+        <text>{{sellparticulars.collect}}</text>
+      </view>
+    </view>
+    <view class="buy_right" bindtap="payOrder" wx:if="{{particulars.type==2||particulars.type==4}}" data-id="{{particulars.id}}" data-buytype="{{2}}" data-goodsprice="{{particulars.price}}">
+      <text class="one">{{sellparticulars.buy}}</text>
+      <text class="two">¥{{particulars.price}}</text>
+    </view>
+    <view class="buy_right" bindtap="payOrder" wx:elif="{{particulars.type==5}}" data-id="{{particulars.id}}" data-buytype="{{2}}" data-goodsprice="{{9.9}}">
+      <text class="one">{{sellparticulars.buy}}</text>
+      <text class="two">¥9.9</text>
+    </view>
+    <view class="buy_right" wx:else>
+      <view wx:if="{{miao_status==1}}" bindtap="payOrder" data-id="{{particulars.id}}" data-buytype="{{2}}" data-goodsprice="{{particulars.miao_price}}">
+        <text class="one">{{sellparticulars.buy}}</text>
+        <text class="two">¥{{particulars.miao_price}}</text>
+      </view>
+      <view wx:elif="{{miao_status==2}}" bindtap="miaoTip" data-miaostatus="{{miao_status}}">
+        <text class="one">秒杀未开始</text>
+      </view>
+      <view wx:elif="{{miao_status==0}}" bindtap="miaoTip" data-miaostatus="{{miao_status}}">
+        <text class="one">秒杀活动结束</text>
+      </view>
+    </view>
+  </view>
+</view>

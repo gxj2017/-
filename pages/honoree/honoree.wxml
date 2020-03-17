@@ -1,0 +1,119 @@
+<view class="honoree_box" wx:if="{{language==1}}">
+  <view class="hiader">
+    <text>{{choujiangpage.bg_title1}}</text>
+    <text>{{choujiangpage.bg_title2}}</text>
+    <text>每日有一次免费抽奖机会</text>
+  </view>
+  <view class="turntable_box">
+    <view class="integral">
+      <text>{{choujiangpage.myintegral}}</text>
+      <text>{{jifenAndYongjin.score}}</text>
+    </view>
+    <view class="jiugongge">
+      <view style='opacity:{{color[0]}}'>
+        <image src="{{imgurl}}{{prize[0].bao_img}}"></image>
+        <text>{{prize[0].prize}}</text>
+      </view>
+      <view style='opacity:{{color[1]}}'>
+        <image src="{{imgurl}}{{prize[1].bao_img}}"></image>
+        <text>{{prize[1].prize}}</text>
+      </view>
+      <view style='opacity:{{color[2]}}'>
+        <image src="{{imgurl}}{{prize[2].bao_img}}"></image>
+        <text>{{prize[2].prize}}</text>
+      </view>
+      <view style='opacity:{{color[7]}}'>
+        <image src="{{imgurl}}{{prize[7].bao_img}}"></image>
+        <text>{{prize[7].prize}}</text>
+      </view>
+      <view bindtap='{{clickLuck}}'>
+        <text>{{choujiangpage.lucky_draw}}</text>
+        <text>-{{integral}}积分</text>
+      </view>
+      <view style='opacity:{{color[3]}}'>
+        <image src="{{imgurl}}{{prize[3].bao_img}}"></image>
+        <text>{{prize[3].prize}}</text>
+      </view>
+      <view style='opacity:{{color[6]}}'>
+        <image src="{{imgurl}}{{prize[6].bao_img}}"></image>
+        <text>{{prize[6].prize}}</text>
+      </view>
+      <view style='opacity:{{color[5]}}'>
+        <image src="{{imgurl}}{{prize[5].bao_img}}"></image>
+        <text>{{prize[5].prize}}</text>
+      </view>
+      <view style='opacity:{{color[4]}}'>
+        <image src="{{imgurl}}{{prize[4].bao_img}}"></image>
+        <text>{{prize[4].prize}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="explain">
+    <text>{{choujiangpage.current_balance}}：{{jifenAndYongjin.score}}{{choujiangpage.integral}}   消耗{{integral}}积分抽一次</text>
+    <view class="explain_minelog" bindtap="lookMyHonoree">「{{choujiangpage.lookLuckyDraw}}」</view>
+    <view class="explain_box">
+      <text class="title">{{choujiangpage.activity_description}}</text>
+      <text wx:for="{{description}}" wx:key="key">{{item}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="honoree_box" wx:elif="{{language==2||language==3}}">
+  <view class="hiader1">
+    <text>{{choujiangpage.bg_title1}}</text>
+    <text>{{choujiangpage.bg_title2}}</text>
+    <text>每日有一次免费抽奖机会</text>
+  </view>
+  <view class="turntable_box">
+    <view class="integral">
+      <text>{{choujiangpage.myintegral}}</text>
+      <text>{{jifenAndYongjin.score}}</text>
+    </view>
+    <view class="jiugongge">
+      <view style='opacity:{{color[0]}}'>
+        <image src="{{imgurl}}{{prize[0].bao_img}}"></image>
+        <text>{{prize[0].prize}}</text>
+      </view>
+      <view style='opacity:{{color[1]}}'>
+        <image src="{{imgurl}}{{prize[1].bao_img}}"></image>
+        <text>{{prize[1].prize}}</text>
+      </view>
+      <view style='opacity:{{color[2]}}'>
+        <image src="{{imgurl}}{{prize[2].bao_img}}"></image>
+        <text>{{prize[2].prize}}</text>
+      </view>
+      <view style='opacity:{{color[7]}}'>
+        <image src="{{imgurl}}{{prize[7].bao_img}}"></image>
+        <text>{{prize[7].prize}}</text>
+      </view>
+      <view bindtap='{{clickLuck}}'>
+        <text>{{choujiangpage.lucky_draw}}</text>
+        <text>-{{integral}}{{choujiangpage.integral}}</text>
+      </view>
+      <view style='opacity:{{color[3]}}'>
+        <image src="{{imgurl}}{{prize[3].bao_img}}"></image>
+        <text>{{prize[3].prize}}</text>
+      </view>
+      <view style='opacity:{{color[6]}}'>
+        <image src="{{imgurl}}{{prize[6].bao_img}}"></image>
+        <text>{{prize[6].prize}}</text>
+      </view>
+      <view style='opacity:{{color[5]}}'>
+        <image src="{{imgurl}}{{prize[5].bao_img}}"></image>
+        <text>{{prize[5].prize}}</text>
+      </view>
+      <view style='opacity:{{color[4]}}'>
+        <image src="{{imgurl}}{{prize[4].bao_img}}"></image>
+        <text>{{prize[4].prize}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="explain">
+    <text>{{choujiangpage.current_balance}}：{{jifenAndYongjin.score}}{{choujiangpage.integral}}</text>
+    <view class="explain_minelog" bindtap="lookMyHonoree">「{{choujiangpage.lookLuckyDraw}}」</view>
+    <view class="explain_box">
+      <text class="title">{{choujiangpage.activity_description}}</text>
+      <text wx:for="{{choujiangpage.description}}" wx:key="index">{{item}}</text>
+    </view>
+  </view>
+</view>

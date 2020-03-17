@@ -1,0 +1,66 @@
+<view class="search">
+  <input wx:if="{{language==1}}" type="" placeholder="搜索" value="{{search}}" bindtap="ssuo"></input>
+  <input wx:if="{{language==2}}" type="" placeholder="ricerca" value="{{search}}" bindtap="ssuo"></input>
+  <input wx:if="{{language==3}}" type="" placeholder=" search" value="{{search}}" bindtap="ssuo"></input>
+</view>
+<swiper class="slides" autoplay="true" interval="3000" duration="500" previous-margin="20rpx" next-margin="20rpx" circular="true">
+  <swiper-item wx:for="{{slides}}" wx:key="id">
+    <navigator>
+      <image src="{{item.banner}}" mode="aspectFill"></image>
+    </navigator>
+  </swiper-item>
+</swiper>
+<view class="grids">
+  <view class="item" wx:for="{{categories}}" wx:key="id">
+    <view data-skipurl="{{item.src}}" bindtap="menuSkip">
+      <image src="{{item.imgurl}}"></image>
+      <text class="text_line_1">{{item.text}}</text>
+    </view>
+  </view>
+</view>
+<view class="inform_box">
+  <swiper autoplay="true" interval="3000" duration="800" circular="true" vertical="true">
+    <swiper-item class="inform" wx:for="{{message}}" wx:key="id">
+      <navigator>
+        <image src="{{item.imgSrc}}"></image>
+        <text>{{item.name}}</text>
+        <text>{{item.text}}</text>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="product">
+  <swiper class="navbar">
+    <swiper-item wx:for="{{navbar}}" data-idx="{{item.id}}" class="item {{currentTab==item.id ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">
+      {{item.catename}}
+    </swiper-item>
+  </swiper>
+  <view class="cells">
+    <view class="cells_item"  wx:for="{{commodity}}" bindtap="skipDetail" data-goodsid="{{item.id}}"  wx:key="id">
+      <image src="{{imgurl}}{{item.g_thumb}}"></image>
+      <view class="cells_text">
+        <text class="describe text_line_3">{{item.g_name}}</text>
+        <view class="price" wx:if="{{language==1}}">
+          <text>¥{{item.price}}</text>
+          <text>立即拼团</text>
+        </view>
+        <view class="price1" wx:elif="{{language==2}}">
+          <text>¥{{item.price}}</text>
+          <text>Spell group immediately</text>
+        </view>
+        <view class="price1" wx:elif="{{language==3}}">
+          <text>¥{{item.price}}</text>
+          <text>Scrive reggimento</text>
+        </view>
+        <view class="price" wx:else>
+          <text>¥{{item.price}}</text>
+          <text>立即拼团</text>
+        </view>
+        <!-- <view class="price" wx:else>
+          <text>¥{{item.g_dan_price}}</text>
+          <text>立即分销</text>
+        </view> -->
+      </view>
+    </view>
+  </view>
+</view>

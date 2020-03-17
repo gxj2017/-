@@ -1,0 +1,64 @@
+/* pages/impower/impower.wxss */
+
+page {
+  height: 100%;
+  display: table;
+  background: linear-gradient(#079cff, #fa9ec9);
+}
+
+.auth {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: table-cell;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  vertical-align: middle;
+}
+
+.title {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 60rpx;
+  position: relative;
+  color: #f5bf46;
+  top: 100rpx;
+}
+
+.describe {
+  color: #dfb372;
+  font-size: 26rpx;
+  margin: 0 0 60rpx;
+  border-radius: 50%;
+  padding: 1 100rpx;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  top: 100rpx;
+  position: relative;
+}
+
+.btn {
+  padding: 0 60rpx;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  white-space: nowrap;
+  user-select: none;
+  font-size: 14px;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  bottom: 120rpx;
+  text-decoration: none;
+  height: 44px;
+  line-height: 44px;
+  display: inline-block;
+  border-radius: 20rpx;
+  background: pink;
+  color: #fff;
+  font-weight: 600;
+}

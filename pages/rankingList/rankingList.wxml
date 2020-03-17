@@ -1,0 +1,29 @@
+<!--pages/rankingList/rankingList.wxml-->
+<view class="rankingList_box">
+  <image src="../../images/rankingList.png"></image>
+  <view class="rankingList">
+    <text class="one" wx:if="{{myStatus !=null}}">{{myStatus}}</text>
+    <view class="message">
+      <image src="{{avatarUrl}}"></image>
+      <text class="name">{{nickName}}</text>
+    </view>
+    <text class="two"  wx:if="{{myRank !=null}}"><text class="three">{{myRank}}</text>名</text>
+  </view>
+</view>
+<view class="list_box">
+  <view class="list" wx:if="{{ranking.length !=0}}">
+    <view class="ranking" wx:for="{{ranking}}" wx:key="id">
+      <view class="list_zhanshi">
+        <view class="">{{index + 1}}</view>
+        <image src="{{item.avatar}}"></image>
+        <text class="name">{{item.username}}</text>
+      </view>
+      <view  wx:if="{{item.status=='已完成'}}" class="wancheng rev">{{item.status}}</view>
+      <view  wx:else="{{item.status}}" class="wancheng hs">{{item.status}}</view>
+    </view>
+  </view>
+  <view class="dataNull" wx:else>
+    <image src="/images/distributorPartner.png"></image>
+    <text>该任务暂时没人做</text>
+  </view>
+</view>

@@ -1,0 +1,150 @@
+.header {
+  width: 750rpx;
+  height: 154rpx;
+  background: rgba(245, 245, 245, 1);
+  box-sizing: border-box;
+  padding-left: 42rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  position: fixed;
+  top: 0;
+}
+
+.picker {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: rgba(64, 64, 64, 1);
+}
+
+.headerBottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  position: relative;
+}
+
+.days {
+  width: 194rpx;
+  text-align: right;
+  box-sizing: border-box;
+  padding-right: 32rpx;
+  border-left: 1rpx solid rgba(152, 152, 152, 1);
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(143, 143, 143, 1);
+  position: absolute;
+  right: 0;
+}
+
+.count {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgba(64, 64, 64, 1);
+}
+
+
+
+.contentBox {
+  padding: 0rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 160rpx;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 10rpx 0rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.list image {
+  width: 84rpx;
+  height: 84rpx;
+  margin-top: 15rpx;
+}
+
+.listRight {
+  width: 590rpx;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.price text:nth-of-type(2) {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: rgba(254, 81, 0, 1);
+}
+
+.listRight .time {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: rgba(143, 143, 143, 1);
+  margin-top: 20rpx;
+}
+
+
+
+
+
+.select_box{
+  width:185rpx;
+  height:70%;
+  border-radius: 14rpx;
+  position: relative;
+  top: 50rpx;
+}
+.select_box .select{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 10rpx;
+}
+.select_box .select .select_text{
+  font-size: 26rpx;
+  color: #777777;
+  line-height: 28rpx;
+  flex: 1;
+}
+.select_box .select .select_img{
+  width: 30rpx;
+  height: 30rpx;
+  display: block;
+}
+
+.select_box .option_box{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  background:rgba(0,0,0,0.84);
+  transition: height 0.3s;
+  border-left:1px solid #efefef;
+  border-right:1px solid #efefef;
+  color: #FFF;
+  text-align: center;
+}
+.select_box .option_box .option{
+  display: block;
+  line-height: 30rpx; 
+  font-size: 30rpx;
+  padding: 25rpx;
+}

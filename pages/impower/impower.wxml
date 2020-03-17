@@ -1,0 +1,8 @@
+<!--pages/impower/impower.wxml-->
+<view class="auth">
+  <view>
+    <image src='../../images/logos.png' class='logo'></image>
+  </view>
+  <button class="btn" open-type='getUserInfo' lang="{{lang}}" wx:if="{{canIUse}}" bindgetuserinfo='onAuth' data-userInfo='{{userInfo}}'>点 击 进 入 主 页</button>
+  <navigator wx:if="{{!canIUse}}" class="btn" url="/pages/auth/auth" open-type="reLaunch" hover-class="other-navigator-hover">已经授权点击调转</navigator>
+</view>

@@ -1,0 +1,36 @@
+<view class="favoBox">
+  <view wx:for="{{productList}}" wx:key="index" class="list" bindtap="toDetail" data-type="{{item.type}}" data-goodsid="{{item.g_id}}">
+    <!-- wx:if 是否选择显示不同图标 -->
+    <!-- <icon wx:if="{{item.selected}}" type="success" color="red" bindtap="bindChange" data-index="{{index}}" />
+    <icon wx:else type="circle" bindtap="bindChange" data-index="{{index}}" /> -->
+    <image src="{{imgurl}}{{item.g_thumb}}"></image>
+    <view class="desc">
+      <view class="title">{{item.g_name}}</view>
+      <view class="num">
+        <view class="num_count">
+          <!-- <text>6支</text> -->
+          <text></text>
+          <icon class="iconfont icon-youjiantou"></icon>
+        </view>
+        <view class="num_group">x1</view>
+      </view>
+      <view class="desc_bottom">
+        <view class="price">
+          <text>￥</text>
+          <text>{{item.g_price}}</text>
+        </view>
+        <icon class="xin iconfont icon-xin" bindtap="selectShc" id="{{item.id}}"></icon>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- <view class="payBottom">
+  <view class="count">
+    <view class="number">
+      <text>已选1件  </text>
+      <icon class="iconfont icon-youjiantou"></icon>
+    </view>
+    <text>合计:￥53.80</text>
+  </view>
+  <view class="payBtn" bindtap="goPay">合并支付</view>
+</view> -->

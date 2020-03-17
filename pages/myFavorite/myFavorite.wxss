@@ -1,0 +1,138 @@
+/* pages/myFavorite/myFavorite.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+}
+.favoBox{
+  height: 100%;
+  flex: 1;
+  overflow-y: auto;
+}
+.list {
+  display: flex;
+  align-items: center;
+  width: 720rpx;
+  height: 256rpx;
+  background-color: #fff;
+  border-radius: 11rpx;
+  border: solid 1rpx #e6e6e6;
+  margin: 20rpx auto 0;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.desc_bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.desc_bottom .xin{
+  margin-top: 20rpx;
+  color: #ff1830;
+}
+
+.list>image {
+  width: 201rpx;
+  height: 201rpx;
+}
+
+.desc {
+  width: 460rpx;
+  height: 201rpx;
+  margin-left: 29rpx;
+}
+
+.title {
+  font-size: 28rpx;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+}
+
+.num {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 31rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.num_count {
+  height: 37rpx;
+  padding-left: 8rpx;
+  background-color: #fff;
+  /* border-radius: 4rpx; */
+  display: flex;
+  color: #666;
+  align-items: center;
+  /* border: solid 1rpx #e6e6e6; */
+}
+
+.num_count>icon {
+  margin-top: -16rpx;
+}
+
+.price {
+  margin-top: 34rpx;
+  color: #d93652;
+}
+
+.price>text:nth-child(1) {
+  font-size: 29rpx;
+}
+
+.price>text:nth-child(2) {
+  font-size: 40rpx;
+}
+
+.payBottom {
+  width: 750rpx;
+  height: 98rpx;
+  background-color: #fff;
+  box-shadow: 0px 1rpx 1rpx 0rpx rgba(0, 0, 0, 0.42);
+}
+
+.payBottom {
+  display: flex;
+  align-items: center;
+}
+
+.payBtn {
+  position: absolute;
+  right: 0;
+  width: 206rpx;
+  height: 98rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 30rpx;
+  background-color: #ff1830;
+}
+
+.count {
+  width: 544rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 38rpx 0 33rpx;
+  justify-content: space-between;
+}
+
+.number {
+  color: #333;
+  font-size: 26rpx;
+}
+
+.number>text {
+  line-height: 98rpx;
+}
+
+.count>text {
+  font-size: 28rpx;
+}

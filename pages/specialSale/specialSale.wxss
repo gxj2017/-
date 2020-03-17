@@ -1,0 +1,68 @@
+/* pages/specialSale/specialSale.wxss */
+
+.product {
+  width: 100%;
+  background-color: #fff;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.cells {
+  padding-left: 2rpx;
+  margin-top: 30rpx;
+  box-sizing: border-box;
+}
+
+.cells navigator {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.cells navigator image {
+  width: 312rpx;
+  height: 312rpx;
+  margin-right: 32rpx;
+  background: #f4f4f4;
+}
+
+.cells_text {
+  position: relative;
+  width: 330rpx;
+  height: 312rpx;
+}
+
+.cells_text .describe {
+  margin-top: 30rpx;
+  width: 340rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.price {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 30rpx;
+}
+
+.price text:nth-of-type(1) {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(217, 54, 82, 1);
+}
+
+.price text:nth-of-type(2) {
+  /* width: 117rpx; */
+  padding: 0rpx 8rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  background: linear-gradient(-89deg, rgb(228, 150, 150), rgba(255, 51, 54, 1), rgba(255, 115, 122, 1));
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}

@@ -1,0 +1,16 @@
+<view class="product">  
+  <view class="cells">
+    <navigator url="/pages/seckillParticulars/seckillParticulars?mkfl=jiukuaijiu&goodsid={{item.id}}" wx:for="{{commodity}}" wx:key="id">
+      <image src="{{imgurl}}{{item.g_thumb}}"></image>
+      <view class="cells_text">
+        <text class="describe text_line_3">{{item.g_name}}</text>
+        <view class="price">
+          <text>￥{{item.g_price}}</text>
+          <text wx:if="{{language==1}}">立即购买</text>
+          <text wx:if="{{language==2}}">Albert wehrer</text>
+          <text wx:if="{{language==3}}">Buy Now</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

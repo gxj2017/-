@@ -1,0 +1,96 @@
+<!--pages/group/group.wxml-->
+<view class="page">
+  <view class="product">
+    <view class="navbar">
+      <text wx:for="{{navbar}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" data-idx="{{index}}" bindtap="navbarTap">{{item}}</text>
+    </view>
+  </view>
+  <view class="team">
+    <view class="navbar">
+      <text wx:for="{{teambar}}" data-idx="{{index}}" class="item {{currentsFilter==index ? 'active' : ''}}" wx:key="unique" bindtap="teambarTap">{{item}}</text>
+    </view>
+  </view>
+  <view class="team_box" wx:if="{{teamList.length !=0 }}">
+    <view class="team_list" wx:for="{{teamList}}" wx:key="id">
+      <view bindtap="groupDetails" data-goodsitem="{{item}}">
+        <view class="team_name">
+          <text>{{item.name}}</text>
+          <text wx:if="{{item.groupnum - item.nownum !=0 }}">{{grouppage.cha}}{{item.groupnum - item.nownum}}{{grouppage.chengtuan}}</text>
+        </view>
+        <view class="commodity">
+          <view class="left">
+            <image src="{{imgurl}}{{item.g_thumb}}" mode="aspectFill"></image>
+            <text>{{item.groupnum}}{{grouppage.groupnum}}</text>
+          </view>
+          <view class="right">
+            <text>{{item.g_name}}</text>
+            <text>{{item.g_tuan_price}}</text>
+            <text>{{grouppage.lookdetail}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="team_list">
+    <navigator url="/pages/groupDetails/groupDetails">
+      <view class="team_name">
+        <text>订单编号：3265232656565</text>
+        <text>3单待确认</text>
+      </view>
+      <view class="commodity">
+        <view class="left">
+          <image src="../../images/shangp1.png" mode="aspectFill"></image>
+          <text>8人团</text>
+        </view>
+        <view class="right">
+          <text>圣芝红酒法国波尔多AOC银奖干红原瓶 进口珍藏葡萄酒类整箱6支原装</text>
+          <text>¥26.90</text>
+          <text>查看详情</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="team_list">
+    <navigator url="/pages/groupDetails/groupDetails">
+      <view class="team_name">
+        <text>订单编号：3265232656565</text>
+        <text>全部确认收货</text>
+      </view>
+      <view class="commodity">
+        <view class="left">
+          <image src="../../images/shangp1.png" mode="aspectFill"></image>
+          <text>8人团</text>
+        </view>
+        <view class="right">
+          <text>圣芝红酒法国波尔多AOC银奖干红原瓶 进口珍藏葡萄酒类整箱6支原装</text>
+          <text>¥26.90</text>
+          <text>查看详情</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="team_list">
+    <navigator url="/pages/groupDetails/groupDetails">
+      <view class="team_name">
+        <text>001团</text>
+        <text>还差3单成团</text>
+      </view>
+      <view class="commodity">
+        <view class="left">
+          <image src="../../images/shangp1.png" mode="aspectFill"></image>
+          <text>8人团</text>
+        </view>
+        <view class="right">
+          <text>圣芝红酒法国波尔多AOC银奖干红原瓶 进口珍藏葡萄酒类整箱6支原装</text>
+          <text>¥26.90</text>
+          <text>邀请好友</text>
+        </view>
+      </view>
+    </navigator>
+  </view> -->
+  </view>
+  <view class="dataNull" wx:else>
+    <image src="/images/distributorPartner.png"></image>
+    <text wx:if="{{currentTab==0}}">您还没有发起任何团购</text>
+    <text wx:if="{{currentTab==1}}">您还没有参与任何团购</text>
+  </view>
+</view>

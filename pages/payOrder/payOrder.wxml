@@ -1,0 +1,267 @@
+<!--pages/payOrder/payOrder.wxml-->
+<view class="payOrderPage" wx:if="{{language==1}}">
+  <view class="payOrderPage_select">
+    <view class="payOrderPage_select_left">{{payorderpage.sendway}}：</view>
+    <view class="payOrderPage_select_right">
+      <view class="page__bd">
+        <view class="section section_gap">
+          <radio-group class="radio-group" bindchange="radioChange">
+            <radio class="radio" wx:for-items="{{radioitems}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+              <text>{{item.value}}</text>
+            </radio>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 选择取货地址 -->
+  <view class="payOrderPage_selectaddress" wx:if="{{is_tihuo==1}}" >
+    <view class="payOrderPage_selectaddress_left">{{payorderpage.quhuoaddress}}：</view>
+    <view class="payOrderPage_selectaddress_right" bindtap="selectShopAddress">
+      <view class="payOrderPage_selectaddress_right_shopinfo">
+        <text class="text_line_1">{{shoplist[shopindex].address}}</text>
+        <text>店铺客服：{{shoplist[shopindex].phone}}</text>
+      </view>
+      <image class="payOrderPage_selectaddress_right" src="../../images/rrr.png"></image>
+    </view>
+  </view>
+  <!-- 店铺地址列表 -->
+  <!-- <view class="payOrderPage_shoplist" wx:if="{{shoplistbol==true}}" bindtap="closepop">
+    <view class="payOrderPage_shoplist_main">
+      <view class="payOrderPage_shoplist_main_item" wx:for="{{shoplist}}" wx:key="index" catchtap="selectaddress" data-shopindex="{{index}}">
+        <view class="address">
+          <text>店铺地址：</text>
+          <text class="text_line_2">{{item.address}}</text>
+        </view>
+        <view class="phonenum">联系电话：{{item.phone}}</view>
+      </view>
+    </view>
+  </view> -->
+  <view class="payOrderPage_addressContainer" wx:if="{{address&&is_tihuo==0}}" bindtap="changeAddress">
+    <view class="payOrderPage_addressContainer_left">
+      <view class="payOrderPage_addressContainer_left_top">
+        <text>{{payorderpage.consignee}}：{{address.uname}}</text>
+        <text>{{address.phone}}</text>
+      </view>
+      <view class="payOrderPage_addressContainer_left_bottom">
+        {{payorderpage.delivery_address}}：{{address.receive_address}}{{address.detail_address}}
+      </view>
+    </view>
+    <view class="payOrderPage_addressContainer_right">
+      <image class="payOrderPage_addressContainer_right_top" src="../../images/rrr.png"></image>
+      <!-- <view class="payOrderPage_addressContainer_right_top"> > </view> -->
+    </view>
+  </view>
+  <view class="payOrderPage_addressNotData"  wx:elif="{{!address&&is_tihuo==0}}" bindtap="changeAddress">
+    <image src="/images/jiahao.png"></image>
+    <text>{{payorderpage.add_address}}</text>
+  </view>
+  <view class="payOrderPage_product_item">
+    <view class="payOrderPage_product_item_top">
+      <image wx:if="{{goodsDetail.g_imgs[0]}}" class="payOrderPage_product_item_top_left" src="{{imgurl}}{{goodsDetail.g_imgs[0]}}"></image>
+      <image wx:else class="payOrderPage_product_item_top_left" src="{{imgurl}}{{goodsDetail.g_thumb}}"></image>
+      <view class="payOrderPage_product_item_top_right">
+        <text class="title">{{goodsDetail.g_name}}</text>
+        <text class="specification">{{productSpecification}}</text>
+        <text class="price">￥{{goodsDetail.buysprice||goodsDetail.singleprice}}</text>
+      </view>
+    </view>
+    <view class="payOrderPage_product_item_bottom">
+      <text wx:if="{{language==1}}" class="text1">{{payorderpage.buynum}}</text>
+      <text wx:if="{{language==2||language==3}}" class="text2">{{payorderpage.buynum}}</text>
+      <view class="productNum_btn_con">
+        <text class="productNum_btn_con_num">{{goodsDetail.buygoodsnum||goodsDetail.g_num}}<text>{{payorderpage.jian}}</text></text>
+      </view>
+    </view>
+    <!-- 备注信息 -->
+    <!-- <view class="pay_remark">
+      <text class="pay_remark_title">备注：</text>
+      <view class="weui_input_container">
+        <input class="weui_input" type="text" bindinput="inputReMarkContent" data-remarkContent='{{remarkContent}}' value="{{remarkContent}}" placeholder="填写备注信息" />
+      </view>
+    </view> -->
+  </view>
+  <view>
+    <view class="pay_way_container">
+      <view class="pay_way_container_left">
+        <image src="../../images/wxicon.png"></image>
+        <text>{{payorderpage.wechatpay}}（{{payorderpage.tuijian}}）</text>
+      </view>
+      <view class="pay_way_container_right">
+        <image src="../../images/duigou.png"></image>
+      </view>
+    </view>
+    <!-- <view class="pay_way_coupon">
+      <view class="pay_way_coupon_title" bindtap="conponPop">
+        <view  class="pay_way_coupon_title_title">
+          <image src="../../image/conpon.png"></image>
+          <text>优惠券</text>
+        </view>
+        <text class="pay_way_coupon_title_price" wx:if='{{conponprice ==null}}'>使用优惠券</text>
+        <text class="pay_way_coupon_title_price" wx:else>-￥{{conponprice}}</text>
+      </view>
+    </view> -->
+  </view>
+  <!-- 优惠券列表 -->
+  <!-- <view class="coupon_item_markBG" wx:if="{{showConpon}}" bindtap="closeConponPop">
+    <view class="coupon_item_container" wx:if="{{showConpon}}">
+      <view class="coupon_item {{couponId==item.id?'selectConpon':''}}" wx:for="{{couponList}}" wx:key="{{index}}" data-conponprice="{{item.money}}" data-id="{{item.id}}" catchtap="selectConpon">
+        <view class="coupon_left">
+          <view class="coupon_item_price  pastPrice">￥{{item.money}}</view>
+        </view>
+        <view class="coupon_right">
+          <view class="coupon_right_title  pastTitle">{{item.title}}</view>
+          <view class="coupon_right_time">
+            <text>期限：</text>
+            <text>{{item.starttime}}</text>
+            <text> - </text>
+            <text>{{item.endtime}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <view class="pay_pay_btn">
+    <view class="pay_pay_container">
+      <view class="pay_pay_container_price">
+        <text>{{payorderpage.needtopay}}</text>
+        <text>￥{{totalPrice||goodsDetail.totalprice}}</text>
+      </view>
+      <view class="pay_pay_container_btn" data-id="{{goodsDetail.type==2||goodsDetail.type==4?goodsDetail.g_id:goodsDetail.id}}" data-type="{{goodsDetail.type}}" data-buytype="{{goodsDetail.buytype}}" data-addressid="{{address.id}}" bindtap="buy">{{payorderpage.immediate_payment}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="payOrderPage" wx:elif="{{language==2||language==3}}">
+  <view class="payOrderPage_select1">
+    <view class="payOrderPage_select_left1">{{payorderpage.sendway}}：</view>
+    <view class="payOrderPage_select_right">
+      <view class="page__bd">
+        <view class="section section_gap">
+          <radio-group class="radio-group" bindchange="radioChange">
+            <radio class="radio" wx:for-items="{{radioitems}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+              <text>{{item.value}}</text>
+            </radio>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 选择取货地址 -->
+  <view class="payOrderPage_selectaddress1" wx:if="{{is_tihuo==1}}" >
+    <view class="payOrderPage_selectaddress_left1">{{payorderpage.quhuoaddress}}：</view>
+    <view class="payOrderPage_selectaddress_right1" bindtap="selectShopAddress">
+      <view class="payOrderPage_selectaddress_right_shopinfo">
+        <text class="text_line_1">{{shoplist[shopindex].address}}</text>
+        <text>店铺客服：{{shoplist[shopindex].phone}}</text>
+      </view>
+      <!-- <view>请选择取货地址</view> -->
+      <image class="payOrderPage_selectaddress_right" src="../../images/rrr.png"></image>
+    </view>
+  </view>
+  <!-- 店铺地址列表 -->
+  <!-- <view class="payOrderPage_shoplist" wx:if="{{shoplistbol==true}}" bindtap="closepop">
+    <view class="payOrderPage_shoplist_main">
+      <view class="payOrderPage_shoplist_main_item" wx:for="{{shoplist}}" wx:key="index" catchtap="selectaddress" data-shopindex="{{index}}">
+        <view class="address">
+          <text>店铺地址：</text>
+          <text class="text_line_2">{{item.address}}</text>
+        </view>
+        <view class="phonenum">联系电话：{{item.phone}}</view>
+      </view>
+    </view>
+  </view> -->
+  <view class="payOrderPage_addressContainer" wx:if="{{address&&is_tihuo==0}}" bindtap="changeAddress">
+    <view class="payOrderPage_addressContainer_left">
+      <view class="payOrderPage_addressContainer_left_top">
+        <text>{{payorderpage.consignee}}：{{address.uname}}</text>
+        <text>{{address.phone}}</text>
+      </view>
+      <view class="payOrderPage_addressContainer_left_bottom">
+        {{payorderpage.delivery_address}}：{{address.receive_address}}{{address.detail_address}}
+      </view>
+    </view>
+    <view class="payOrderPage_addressContainer_right">
+      <image class="payOrderPage_addressContainer_right_top" src="../../images/rrr.png"></image>
+      <!-- <view class="payOrderPage_addressContainer_right_top"> > </view> -->
+    </view>
+  </view>
+  <view class="payOrderPage_addressNotData"  wx:elif="{{!address&&is_tihuo==0}}" bindtap="changeAddress">
+    <image src="/images/jiahao.png"></image>
+    <text>{{payorderpage.add_address}}</text>
+  </view>
+  <view class="payOrderPage_product_item">
+    <view class="payOrderPage_product_item_top">
+      <image wx:if="{{goodsDetail.g_imgs[0]}}" class="payOrderPage_product_item_top_left" src="{{imgurl}}{{goodsDetail.g_imgs[0]}}"></image>
+      <image wx:else class="payOrderPage_product_item_top_left" src="{{imgurl}}{{goodsDetail.g_thumb}}"></image>
+      <view class="payOrderPage_product_item_top_right">
+        <text class="title">{{goodsDetail.g_name}}</text>
+        <text class="specification">{{productSpecification}}</text>
+        <text class="price">￥{{goodsDetail.buysprice||goodsDetail.singleprice}}</text>
+      </view>
+    </view>
+    <view class="payOrderPage_product_item_bottom">
+      <text wx:if="{{language==1}}" class="text1">{{payorderpage.buynum}}</text>
+      <text wx:if="{{language==2||language==3}}" class="text2">{{payorderpage.buynum}}</text>
+      <view class="productNum_btn_con">
+        <text class="productNum_btn_con_num">{{goodsDetail.buygoodsnum||goodsDetail.g_num}}<text>{{payorderpage.jian}}</text></text>
+      </view>
+    </view>
+    <!-- 备注信息 -->
+    <!-- <view class="pay_remark">
+      <text class="pay_remark_title">备注：</text>
+      <view class="weui_input_container">
+        <input class="weui_input" type="text" bindinput="inputReMarkContent" data-remarkContent='{{remarkContent}}' value="{{remarkContent}}" placeholder="填写备注信息" />
+      </view>
+    </view> -->
+  </view>
+  <view>
+    <view class="pay_way_container">
+      <view class="pay_way_container_left">
+        <image src="../../images/wxicon.png"></image>
+        <text>{{payorderpage.wechatpay}}（{{payorderpage.tuijian}}）</text>
+      </view>
+      <view class="pay_way_container_right">
+        <image src="../../images/duigou.png"></image>
+      </view>
+    </view>
+    <!-- <view class="pay_way_coupon">
+      <view class="pay_way_coupon_title" bindtap="conponPop">
+        <view  class="pay_way_coupon_title_title">
+          <image src="../../image/conpon.png"></image>
+          <text>优惠券</text>
+        </view>
+        <text class="pay_way_coupon_title_price" wx:if='{{conponprice ==null}}'>使用优惠券</text>
+        <text class="pay_way_coupon_title_price" wx:else>-￥{{conponprice}}</text>
+      </view>
+    </view> -->
+  </view>
+  <!-- 优惠券列表 -->
+  <!-- <view class="coupon_item_markBG" wx:if="{{showConpon}}" bindtap="closeConponPop">
+    <view class="coupon_item_container" wx:if="{{showConpon}}">
+      <view class="coupon_item {{couponId==item.id?'selectConpon':''}}" wx:for="{{couponList}}" wx:key="{{index}}" data-conponprice="{{item.money}}" data-id="{{item.id}}" catchtap="selectConpon">
+        <view class="coupon_left">
+          <view class="coupon_item_price  pastPrice">￥{{item.money}}</view>
+        </view>
+        <view class="coupon_right">
+          <view class="coupon_right_title  pastTitle">{{item.title}}</view>
+          <view class="coupon_right_time">
+            <text>期限：</text>
+            <text>{{item.starttime}}</text>
+            <text> - </text>
+            <text>{{item.endtime}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <view class="pay_pay_btn">
+    <view class="pay_pay_container">
+      <view class="pay_pay_container_price">
+        <text>{{payorderpage.needtopay}}</text>
+        <text>￥{{totalPrice||goodsDetail.totalprice}}</text>
+      </view>
+      <view class="pay_pay_container_btn" data-id="{{goodsDetail.type==2||goodsDetail.type==4?goodsDetail.g_id:goodsDetail.id}}" data-type="{{goodsDetail.type}}" data-buytype="{{goodsDetail.buytype}}" data-addressid="{{address.id}}" bindtap="buy">{{payorderpage.immediate_payment}}</view>
+    </view>
+  </view>
+</view>

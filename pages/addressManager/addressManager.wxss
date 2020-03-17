@@ -1,0 +1,65 @@
+.addressItem {
+  box-sizing: border-box;
+  padding: 30rpx 32rpx 0 32rpx;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+}
+.addressContent{
+  margin-bottom: 100rpx;
+}
+.phone {
+  margin-left: 16rpx;
+}
+
+.area {
+  margin-top: 10rpx;
+  display: flex;
+}
+
+.edit {
+  width: 81rpx;
+  text-align: right;
+  border-left: 2rpx solid #c7c7c7;
+  color: #8f8f8f;
+}
+
+button {
+  width: 684rpx;
+  height: 86rpx;
+  background-color: #d93652;
+  border-radius: 43rpx;
+  position: fixed;
+  bottom: 30rpx;
+  left: 50%;
+  margin-left: -342rpx;
+  color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.area_left {
+  display: block;
+  width: 100rpx;
+  height: 38rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 2rpx solid rgba(255, 201, 14, 1);
+  border-radius: 6rpx;
+  font-size: 20rpx;
+  font-weight: 500;
+  color: rgba(255, 201, 14, 1);
+  text-align: center;
+  line-height: 38rpx;
+  margin-right: 20rpx;
+}
+
+.address {
+  display: inline-block;
+  width: 100%;
+  height: 50rpx;
+  overflow: hidden;
+}

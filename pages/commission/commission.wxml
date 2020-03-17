@@ -1,0 +1,36 @@
+<view class="header">
+  <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <view class="picker">{{date}}
+      <text class="iconfont icon-fanhui-copy-copy-copy-copy"></text>
+    </view>
+  </picker> -->
+  <picker mode="date" fields="month" value="{{selectDate}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
+    <view class="picker">{{selectDate}}
+      <text class="iconfont icon-fanhui-copy-copy-copy-copy"></text>
+    </view>
+  </picker>
+  <view class="headerBottom">
+    <text class="count">总佣金 <text>￥{{income}}</text></text>
+    <!--  catchtap='selectTap' -->
+    <text class="days">{{selectData[index]}}
+      <!-- <text class="iconfont icon-fanhui-copy-copy-copy-copy"></text> -->
+    </text>
+    <view class='select_box'>
+      <view class='option_box' style='height:{{selectShow?(selectData.length>5?325:selectData.length*80):0}}rpx;'>
+        <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="contentBox">
+  <view class="list" wx:for="{{yongJinLog}}" wx:key="index">
+    <image src="{{item.avatar}}" mode="aspectFill"></image>
+    <view class="listRight">
+      <view class="price">
+        <text>{{item.username}}</text>
+        <text>+{{item.income}}</text>
+      </view>
+      <view class="time">{{item.addtime}}</view>
+    </view>
+  </view>
+</view>

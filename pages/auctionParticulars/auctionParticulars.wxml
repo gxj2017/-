@@ -1,0 +1,168 @@
+<!--pages/auctionParticulars/auctionParticulars.wxml-->
+<view class="page">
+  <view class="page_main">
+    <view class="auctionParticulars">
+      <view class="auctionParticulars_box">
+        <swiper class="slides" circular="true">
+          <swiper-item wx:for="{{goodsDetail.g_imgs}}" wx:key="index">
+            <image src="{{imgurl}}{{banner[index]}}" mode="aspectFill"></image>
+          </swiper-item>
+        </swiper>
+        <view class="time">
+          <text>结束时间: {{goodsDetail.endtime}}</text>
+          <text>（价高者得）</text>
+        </view>
+        <view class="Particulars">
+          <text class="title">{{goodsDetail.g_name}}</text>
+          <view class="price">
+            <text class="xianjia">¥{{goodsDetail.pai_price}}</text>
+            <text class="yip">已竞争<text>{{paimaiPersonList.length}}</text>人</text>
+          </view>
+        </view>
+        <view class="select">
+          <view class="site_wm" bindtap="addAddress">
+            <text class="{{language==1?'one':'one1'}}">{{auctionParticularsPage.address}}</text>
+            <text class="two"><text class="iconfont icon-ditu"></text>{{morengdizhi.receive_address?morengdizhi.receive_address:auctionParticularsPage.add_address}}</text>
+            <text class="three iconfont icon-jiantou3"></text>
+          </view>
+          <view class="specification" bindtap="guaige_but">
+            <text class="{{language==1?'one':'one1'}}">{{auctionParticularsPage.guige}}</text>
+            <text class="two">{{productSpecification?productSpecification:auctionParticularsPage.select_guige}}</text>
+            <text class="three iconfont icon-jiantou3"></text>
+          </view>
+          <view class="parameter" bindtap="put">
+            <text class="{{language==1?'one':'one1'}}">{{auctionParticularsPage.canshu}}</text>
+            <text class="two">{{auctionParticularsPage.lookgoodscanshu}}</text>
+            <text class="three iconfont icon-jiantou3"></text>
+          </view>
+        </view>
+        <view class="all_person" wx:if="{{paimaiPersonList.length !=0 }}">
+          <view class="speed">
+            <text>{{paimaiPersonList.length}}{{auctionParticularsPage.jingzheng}}</text>
+            <text bindtap="cccc">{{auctionParticularsPage.lookmore}}></text>
+          </view>
+          <view wx:for="{{paimaiPersonList}}" wx:key="index">
+            <view class="person" wx:if="{{index < 2}}">
+              <view class="person_xinxi">
+                <image src="{{item.avatar}}"></image>
+                <text>{{item.username}}</text>
+              </view>
+              <text class="jiage">￥{{item.true_price}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="evaluate_box" wx:if="{{goodsComment.commentShow}}">
+          <view class="evaluate">
+            <text class="sp">{{auctionParticularsPage.goodsEvaluation}}({{goodsComment.count||0}})</text>
+            <view class="examine" wx:if="{{goodsComment.list>2}}">
+              <navigator url="/pages/evaluateList/evaluateList?goodsid={{goodsDetail.id}}" class="look">{{auctionParticularsPage.lookmore}}</navigator>
+              <text class="right iconfont icon-jiantou3"></text>
+            </view>
+          </view>
+          <view class="comment">
+            <text wx:for="{{goodsComment.biaoqian}}" wx:key="index">{{item.name}}({{item.num}})</text>
+          </view>
+          <view class="user_com">
+            <view class="user_text" wx:for="{{goodsComment.list}}" wx:key="index">
+              <view class="user_xinxi">
+                <view class="user_xinxi_user">
+                  <image src="{{item.avatar}}"></image>
+                  <text>{{item.username}}</text>
+                </view>
+                <text class="time">{{item.addtime}}</text>
+              </view>
+              <text class="text text_line_2">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="image_text">
+          <text class="title">{{auctionParticularsPage.tuwenDetail}}</text>
+          <view class="detail_main">
+            <import src="/wxParse/wxParse.wxml" />
+            <template is="wxParse" data="{{wxParseData:concent.nodes}}" />
+          </view>
+        </view>
+      </view>
+      <view class="Product_Parameter_container" hidden='{{popup}}'>
+        <view class="Product_Parameter">
+          <view class="shut" bindtap='hidePopup'>
+            <text class="iconfont icon-chahao"></text>
+          </view>
+          <text class="title">产品参数</text>
+          <view class="Product_data" wx:for="{{goodsDetail.canshu}}" wx:key="index">
+            <text>{{item.title}}</text>
+            <text>{{item.neirong}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 规格 -->
+      <view class="tk_box" wx:if="{{guaigebox}}">
+        <view class="site">
+          <view class="shut" bindtap="guaigeyinc_btn">
+            <text class="iconfont icon-chahao"></text>
+          </view>
+          <view class="commodity">
+            <image src="../../images/shangp1.png"></image>
+            <view>
+              <text>￥{{goodsDetail.pai_price}}</text>
+              <text>{{auctionParticularsPage.select_guige}}</text>
+            </view>
+          </view>
+          <view class="commodity_Sp">
+            <text>{{auctionParticularsPage.guige}}</text>
+            <view class="SpList">
+              <text>{{auctionParticularsPage.shuliang}}</text>
+            </view>
+          </view>
+          <view class="select_sp">
+            <view class="left">
+              <text>{{auctionParticularsPage.shuliang}}</text>
+              <text>{{productNum}}{{auctionParticularsPage.jian}}</text>
+            </view>
+            <view class="right">
+              <text bindtap='numminus' data-index="{{index}}">-</text>
+              <input class="view_text_center" value="{{productNum}}" bindinput='input_num' data-index="{{index}}"></input>
+              <text bindtap='numadd' data-index="{{index}}">+</text>
+            </view>
+          </view>
+        </view>
+        <button bindtap="confirmSpecification">{{auctionParticularsPage.comfirm}}</button>
+      </view>
+      <view class="all_auction" hidden='{{auction}}'>
+        <view class="reng">
+          <view class="wjshut" bindtap='hideAuction'>
+            <text class="iconfont icon-chahao"></text>
+          </view>
+          <view class="hiader">{{auctionParticularsPage.jingpaibtn}}</view>
+          <view class="wj_list">
+            <view class="wj_xinxi" wx:for="{{paimaiPersonList}}" wx:key="index">
+              <view class="xinxi_left">
+                <image src="{{item.avatar}}"></image>
+                <view>
+                  <text>{{item.username}}</text>
+                  <text>{{item.addtime}}</text>
+                </view>
+              </view>
+              <text class="jiage">￥{{item.true_price}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="buy">
+    <view class="buy_left">
+      <button class="service" open-type="contact">
+        <image src="../../images/service.png"></image>
+        <text>{{auctionParticularsPage.kefu}}</text>
+      </button>
+      <!-- <view class="collect">
+          <image src="../../images/collect.png"></image>
+          <text>收藏</text>
+        </view> -->
+    </view>
+    <view class="buy_right" bindtap="toAuction">
+      <text>{{auctionParticularsPage.jingpaibtn}}</text>
+    </view>
+  </view>
+</view>

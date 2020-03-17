@@ -1,0 +1,27 @@
+<!--pages/evaluateList/evaluateList.wxml-->
+<view class="evaluate_box">
+  <view class="evaluate_kind">
+    <text class="active">全部({{goodsComment.count}})</text>
+    <text wx:for="{{goodsComment.biaoqian}}" wx:key="index">{{item.name}}({{item.num}})</text>
+  </view>
+</view>
+<view class="evaluate_list">
+  <view wx:for="{{goodsComment.list}}"  wx:key="index" class="list_box">
+    <view class="list">
+      <view class="haider">
+        <image src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="title">
+          <text>{{item.username}}</text>
+          <!-- <text>{{item.specification}}</text> -->
+        </view>
+      </view>
+      <text class="time">{{item.addtime}}</text>
+    </view>
+    <view class="content">
+      <text class="tex">{{item.content}}</text>
+      <view class="img">
+        <image wx:for="{{item.img}}" wx:key="index" data-preimg="{{imgurl}}{{item}}" data-preindex="{{index}}" bindtap="imgYu" src="{{imgurl}}{{item}}" mode="aspectFill"></image>
+      </view>
+    </view>
+  </view>
+</view>

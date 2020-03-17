@@ -1,0 +1,43 @@
+<!--pages/distributorPartner/distributorPartner.wxml-->
+<view class="distributorPartner_box" wx:if="{{distributorId==0}}">
+  <text class="title">如何成为分销商</text>
+  <view class="img">
+    <image src="../../images/distributorPartner.png"></image>
+  </view>
+  <button class="btn" bindtap="agreeBtn">成为分销商（￥{{fenxiaoMoney}}）</button>
+  <text class="distributorPartner">开通说明：</text>
+  <text class="text">成为分销商开通需要$150.00，可以分销商品，分销商开通 需要$150.00，可以分销商品。</text>
+</view>
+<view class="DistributionGoods" wx:else>
+  <view class="product">
+    <swiper class="navbar">
+      <swiper-item wx:for="{{navbar}}" data-idx="{{item.id}}" class="item {{currentTab==item.id ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">
+        {{item.catename}}
+      </swiper-item>
+    </swiper>
+    <view class="cells">
+      <view class="cells_item" wx:for="{{commodity}}" bindtap="skipDetail" data-goodsid="{{item.id}}" data-fenxiao="{{true}}" wx:key="id">
+        <image src="{{imgurl}}{{item.g_thumb}}"></image>
+        <view class="cells_text">
+          <text class="describe text_line_3">{{item.g_name}}</text>
+          <view class="price" wx:if="{{language==1}}">
+            <text>¥{{item.price}}</text>
+            <text>立即分销</text>
+          </view>
+          <view class="price1" wx:elif="{{language==2}}">
+            <text>¥{{item.price}}</text>
+            <text>Spell group immediately</text>
+          </view>
+          <view class="price1" wx:elif="{{language==3}}">
+            <text>¥{{item.price}}</text>
+            <text>Scrive reggimento</text>
+          </view>
+        </view>
+        <!-- <view class="price" wx:else>
+          <text>¥{{item.g_dan_price}}</text>
+          <text>立即分销</text>
+        </view> -->
+      </view>
+    </view>
+  </view>
+</view>

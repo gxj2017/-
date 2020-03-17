@@ -1,0 +1,79 @@
+<!--pages/distributor/distributor.wxml-->
+<!-- <view class="search">
+  <input type="" placeholder="请输入名称" value="{{search}}"></input>
+</view> -->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+<view class="distributor_box" wx:if="{{awardList.length !=0 }}">
+  <view class="distributorList" wx:if="{{currentTab==0}}" wx:for="{{awardList}}" wx:key="index">
+    <image src="{{imgurl}}{{item.huanimg}}" mode="aspectFill" />
+    <view class="list_box">
+      <view class="list_top">
+        <view class="list_name">
+          <!-- <text>{{item.username}}</text> -->
+          <text class="text_line_1">{{item.huanname}}</text>
+        </view>
+      </view>
+      <view class="list_bottom">
+        <text>{{item.addtime}}</text>
+        <text bindtap="toExchangeGoods" data-id="{{item.id}}">立即兑换</text>
+      </view>
+    </view>
+  </view>
+  <view class="distributorList" wx:if="{{currentTab==1}}" wx:for="{{awardList}}" wx:key="index">
+    <image src="{{item.bao_img}}" mode="aspectFill" />
+    <view class="list_box">
+      <view class="list_top">
+        <view class="list_name">
+          <!-- <text>{{item.username}}</text> -->
+          <text class="text_line_1">{{item.baoxiang_name}}</text>
+        </view>
+        <!-- <text>{{item.addtime}}</text> -->
+      </view>
+      <view class="list_bottom">
+        <text>{{item.addtime}}</text>
+        <text></text>
+      </view>
+    </view>
+  </view>
+  <view class="kapian_container" wx:if="{{currentTab==2}}">
+    <view class="kapian_item" wx:for="{{awardList}}" wx:key="index" wx:if="{{item.num !=0 }}">
+      <view class="kapian_item_pic">
+        <image src="{{imgurl}}{{item.bao_img}}" mode="aspectFill" />
+      </view>
+      <view class="kapian_item_title">
+        <text>{{item.prize}}</text>
+        <text>{{item.num}}张</text>
+      </view>
+    </view>
+    <view class="kapian_item" bindtap="toChangeGoods">
+      <view class="kapian_item_noticepic">
+        <image src="../../images/categories(8).png" mode="aspectFill" />
+      </view>
+      <view class="kapian_item_notice">
+        <text>去兑换商品</text>
+      </view>
+    </view>
+  </view>
+  <view class="distributorList" wx:if="{{currentTab==3}}" wx:for="{{awardList}}" wx:key="index">
+    <image src="{{imgurl}}{{item.huanimg}}" mode="aspectFill" />
+    <view class="list_box">
+      <view class="list_top">
+        <view class="list_name">
+          <!-- <text>{{item.username}}</text> -->
+          <text class="text_line_1">{{item.baoxiang_name}}</text>
+        </view>
+        <!-- <text>{{item.addtime}}</text> -->
+      </view>
+      <view class="list_bottom">
+        <text>{{item.addtime}}</text>
+        <text></text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="dataNull" wx:else>
+  <image src="/images/distributorPartner.png"></image>
+  <text>{{errMsg||'暂无数据'}}</text>
+</view>

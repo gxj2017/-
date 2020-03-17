@@ -1,0 +1,34 @@
+<!--pages/auctionOrderForm/auctionOrderForm.wxml-->
+<view class="OrderForm">
+  <view class="dizhi">
+    <view class="select_dizhi">
+      <image src="../../images/dingwei@2x.png"></image>
+      <view class="consignee">
+        <view class="name">
+          <text>收货人 : {{morengdizhi.uname}}</text>
+          <text>{{morengdizhi.phone}}</text>
+        </view>
+        <text>收货地址：{{morengdizhi.receive_address}}{{morengdizhi.detail_address}}</text>
+      </view>
+    </view>
+    <text class="iconfont icon-jiantou3"></text>
+  </view>
+  <view class="details">
+    <view class="commodity">
+      <image src="{{imgurl}}{{goodsDetail.g_imgs[0]}}" mode="aspectFill"></image>
+      <text>{{goodsDetail.g_name}}</text>
+    </view>
+    <view class="price">
+      <text>竞拍价格</text>
+      <view class="inp">
+        <text>￥{{inputprice}}</text>
+        <!-- <input placeholder=""  bindinput="inputPrice" data-inputprice='inputprice' value="{{inputprice}}"></input> -->
+      </view>
+    </view>
+  </view>
+  <view class="pay">
+    <text>合计： </text>
+    <text>¥{{inputprice}}</text>
+    <button bindtap="paimaiPay">立即支付</button>
+  </view>
+</view>

@@ -1,0 +1,188 @@
+/* pages/oneself/oneself.wxss */
+
+/* .container {
+  width: 100%;
+  height: 100%;
+} */
+
+page {
+  background-color: #f5f5f5;
+}
+
+.header {
+  width: 750rpx;
+  height: 234rpx;
+  background-color: #d93652;
+  box-sizing: border-box;
+  padding-top: 46rpx;
+  display: flex;
+}
+
+.headImg {
+  width: 128rpx;
+  height: 128rpx;
+  background-color: #fff;
+  border: solid 1px #b9b9b9;
+  border-radius: 64rpx;
+  margin-left: 40rpx;
+  overflow: hidden;
+}
+
+.headImg image {
+  width: 100%;
+  height: 100%;
+}
+
+.headInfo {
+  margin-left: 23rpx;
+  margin-top: 30rpx;
+  color: #fff;
+}
+
+.name {
+  font-size: 36rpx;
+}
+
+.integral {
+  font-size: 32rpx;
+}
+
+.numberBox {
+  width: 684rpx;
+  height: 159rpx;
+  background-color: #fff;
+  box-shadow: 0px 0px 13rpx 0px rgba(0, 0, 0, 0.51);
+  border-radius: 8rpx;
+  margin: 0 auto;
+  margin-top: -33rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.numberBox ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.numberBox ul li:nth-child(1) {
+  color: #858585;
+  font-size: 30rpx;
+}
+
+.numberBox ul li:nth-child(2) {
+  color: #d93652;
+  font-size: 32rpx;
+  margin-top: 27rpx;
+}
+
+.myOrder {
+  width: 750rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  padding: 36rpx 35rpx 30rpx 32rpx;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.title navigator {
+  display: flex;
+  align-items: center;
+}
+
+.title navigator text:nth-of-type(2) {
+  font-size: 24rpx;
+  margin-top: 8rpx;
+}
+
+.lookOrder {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.orderStatus {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 42rpx;
+}
+.orderStatus li {
+  flex: 1;
+}
+.orderStatus li navigator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.orderStatus li navigator:nth-child(1) image {
+  width: 49rpx;
+  height: 42rpx;
+}
+
+.orderStatus li navigator:nth-child(2) image,
+.orderStatus li navigator:nth-child(3) image {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.orderStatus li navigator text {
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  color: #333;
+  text-align: center;
+}
+
+.addressManager, .myCollect {
+  width: 750rpx;
+  height: 86rpx;
+  box-sizing: border-box;
+  padding: 0 34rpx 0 31rpx;
+  background-color: #fff;
+  border: solid 1rpx #e8e9eb;
+  margin-top: 21rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #040404;
+  font-size: 32rpx;
+}
+
+.yuyan {
+  width: 750rpx;
+  height: 86rpx;
+  box-sizing: border-box;
+  padding: 0 34rpx 0 31rpx;
+  background-color: #fff;
+  border: solid 1rpx #e8e9eb;
+  margin-top: 21rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #040404;
+  font-size: 32rpx;
+}
+
+.select {
+  width: 750rpx;
+  box-sizing: border-box;
+  padding: 0 34rpx 0 31rpx;
+  background-color: #fff;
+  border: solid 1rpx #e8e9eb;
+}
+.select view{
+  padding-top: 20rpx;
+}
+.select view:nth-of-type(3){
+  height: 50rpx;
+  padding-bottom: 20rpx;
+}

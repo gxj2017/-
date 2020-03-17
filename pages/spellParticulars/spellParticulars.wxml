@@ -1,0 +1,211 @@
+<view class="page_container">
+  <view class="max_box">
+    <swiper class="slides" circular="true">
+      <swiper-item wx:for="{{banner}}" wx:key="index">
+        <image src="{{imgurl}}{{banner[index]}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+    <view class="Particulars">
+      <text class="title">{{goodsDetail.g_name}}</text>
+      <view class="price">
+        <view class="price_price">
+          <text class="xianjia">¥{{goodsDetail.price}}</text>
+          <text class="yuanjia">¥{{goodsDetail.g_price}}</text>
+        </view>
+        <view class="amount">
+          <text class="yip">已拼<text class="yip_shl">{{goodsDetail.g_sellnum}}</text>份</text>
+          <progress percent="{{beifenbi}}" show-info color="#ff6714" font-size="12" />
+        </view>
+      </view>
+    </view>
+    <view class="select">
+      <view class="site_wm" bindtap="addAddress">
+        <text class="{{language==1?'one':'one1'}}">{{sellparticulars.address}}</text>
+        <text class="two"><text class="iconfont icon-ditu"></text>{{morengdizhi.receive_address?morengdizhi.receive_address:sellparticulars.add_address}}</text>
+        <text class="three iconfont icon-jiantou3"></text>
+      </view>
+      <view class="specification" bindtap="guaige_but">
+        <text class="{{language==1?'one':'one1'}}">{{sellparticulars.guige}}</text>
+        <text class="two">{{productSpecification?productSpecification:sellparticulars.select_guige}}</text>
+        <text class="three iconfont icon-jiantou3"></text>
+      </view>
+      <view class="parameter" bindtap="put">
+        <text class="{{language==1?'one':'one1'}}">{{sellparticulars.canshu}}</text>
+        <text class="two">{{sellparticulars.lookgoodscanshu}}</text>
+        <text class="three iconfont icon-jiantou3"></text>
+      </view>
+    </view>
+    <view class="go_team" wx:if="{{addGroupPepoleNum !=0 }}">
+      <text class="people">{{addGroupPepoleNum}}人在拼单，可直接参与</text>
+      <swiper autoplay="true" interval="3000" duration="1000" circular="true" vertical="true">
+        <swiper-item class="inform" wx:for="{{goodsGroupList}}" wx:key="index">
+          <view class="people_xX">
+            <view class="people_name">
+              <image src="{{item.avatar}}"></image>
+              <text>{{item.username}}</text>
+            </view>
+            <view class="time_box">
+              <view class="time">
+                <text>还差<text class="fs">{{item.groupnum-item.nownum}}人</text>拼成</text>
+                <text>剩余{{item.daojishi}}</text>
+              </view>
+              <view class="btn" data-addgroupid="{{item.id}}" data-surplusnum="{{item.groupnum-item.nownum}}" data-daojishi="{{item.daojishi}}" bindtap="goPintuan">去拼单</view>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="evaluate_box" wx:if="{{goodsComment.commentShow}}">
+      <view class="evaluate">
+        <text class="sp">{{sellparticulars.goodsEvaluation}}({{goodsComment.count||0}})</text>
+        <view class="examine" wx:if="{{goodsComment.list>2}}">
+          <navigator url="/pages/evaluateList/evaluateList?goodsid={{goodsDetail.id}}" class="look">查看全部</navigator>
+          <text class="right iconfont icon-jiantou3"></text>
+        </view>
+      </view>
+      <view class="comment">
+        <text wx:for="{{goodsComment.biaoqian}}" wx:key="index">{{item.name}}({{item.num}})</text>
+      </view>
+      <view class="user_com">
+        <view class="user_text" wx:for="{{goodsComment.list}}" wx:key="index">
+          <view class="user_xinxi">
+            <view class="user_xinxi_user">
+              <image src="{{item.avatar}}"></image>
+              <text>{{item.username}}</text>
+            </view>
+            <text class="time">{{item.addtime}}</text>
+          </view>
+          <text class="text text_line_2">{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="image_text">
+      <text class="title">{{sellparticulars.tuwenDetail}}</text>
+      <view class="image_text_detail">
+        <import src="/wxParse/wxParse.wxml" />
+        <template is="wxParse" data="{{wxParseData:concent.nodes}}" />
+      </view>
+    </view>
+    <!-- 立即分享弹窗 -->
+    <view class="share_pop" wx:if="{{sharebol}}" bindtap="closeSharePop">
+      <view class="share_pop_outcontainer">
+        <view class="share_pop_container">
+          <view class="share_pop_top">
+            <image class="share_pop_top_img" src="{{imgurl}}{{banner[0]}}" mode="aspectFill"></image>
+            <view class="share_pop_top_name text_line_2">{{goodsDetail.g_name}}</view>
+            <view class="share_pop_top_priceAndma">
+              <text class="price">¥{{goodsDetail.g_price}}</text>
+              <view class="erweima">
+                <image src="{{erWeiMa.url}}" mode="aspectFill"></image>
+              </view>
+            </view>
+          </view>
+          <view class="share_pop_bottom">
+            <text class="share_pop_savebtn" catchtap="save">保存图片</text>
+            <!-- <button open-type='share' class='share_pop_sharebtn' catchtap="onShareAppMessage">分享给好友</button> -->
+          </view>
+        </view>
+      </view>
+      <view class='poste_box' id='canvas-container'>
+        <canvas canvas-id="myCanvas" style="width:100%;height:980rpx;" />
+      </view>
+    </view>
+    <!-- 参数 -->
+    <view class="tk_box" hidden='{{popup}}'>
+      <view class="Product_Parameter">
+        <view class="shut" bindtap='hidePopup'>
+          <text class="iconfont icon-chahao"></text>
+        </view>
+        <text class="title">产品参数</text>
+        <view class="Product_data" wx:for="{{goodsDetail.canshu}}" wx:key="index">
+          <text>{{item.title}}</text>
+          <text>{{item.neirong}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 规格 -->
+    <view class="tk_box" wx:if="{{guaigebox}}">
+      <view class="site">
+        <view class="shut" bindtap="guaigeyinc_btn">
+          <text class="iconfont icon-chahao"></text>
+        </view>
+        <view class="commodity">
+          <image src="../../images/shangp1.png"></image>
+          <view>
+            <text>￥{{goodsDetail.price}}</text>
+            <text>{{sellparticulars.select_guige}}</text>
+          </view>
+        </view>
+        <view class="commodity_Sp">
+          <text>{{sellparticulars.guige}}</text>
+          <view class="SpList">
+            <text>{{sellparticulars.onebottle}}</text>
+          </view>
+        </view>
+        <view class="select_sp">
+          <view class="left">
+            <text>{{sellparticulars.shuliang}}</text>
+            <text>{{productNum}}{{sellparticulars.jian}}</text>
+          </view>
+          <view class="right">
+            <text bindtap='numminus' data-index="{{index}}">-</text>
+            <input class="view_text_center" value="{{productNum}}" bindinput='input_num' data-index="{{index}}"></input>
+            <text bindtap='numadd' data-index="{{index}}">+</text>
+          </view>
+        </view>
+      </view>
+      <button bindtap="confirmSpecification">{{sellparticulars.comfirm}}</button>
+    </view>
+    <!-- 去拼单 -->
+    <view class="tk_box" wx:if="{{yaoqincantuan}}">
+      <view class="pintuan">
+        <view class="shut" bindtap="canyu_but">
+          <text class="iconfont icon-chahao"></text>
+        </view>
+        <text class="T_text T_title">参与 {{groupPepoleList[0].username}} 的拼单</text>
+        <text class="T_text">仅剩{{surplusnum}}个名额，{{daojishi}}后结束</text>
+        <view class="tuanyuanBox">
+          <view class="tuan_pic">
+            <view class="tuanzhang">
+              <image wx:for="{{groupPepoleList}}" wx:key="index" src="{{item.avatar}}"></image>
+              <image wx:for="{{surplusnum}}" wx:key="index" src="../../images/touxiang1.png"></image>
+              <text>团长</text>
+            </view>
+          </view>
+        </view>
+        <view class="canyupintuan" bindtap="addGroup" data-buytype="{{1}}" data-id="{{goodsDetail.id}}" data-goodsprice="{{goodsDetail.g_tuan_price}}">参与拼单</view>
+      </view>
+    </view>
+  </view>
+  <view class="buy">
+    <view class="buy_left">
+      <button class="service" open-type="contact">
+        <image src="../../images/service.png"></image>
+        <text>{{sellparticulars.kefu}}</text>
+      </button>
+      <view class="collect" bindtap="shoucang">
+        <image src="../../images/collect.png" wx:if="{{goodsDetail.is_shoucang==0}}"></image>
+        <image src="../../images/collect1.png" wx:if="{{goodsDetail.is_shoucang==1}}"></image>
+        <text>{{sellparticulars.collect}}</text>
+      </view>
+    </view>
+    <view class="buy_right">
+      <view class="purchase_box" bindtap="payOrder" data-buytype="{{2}}" data-id="{{goodsDetail.id}}" data-goodsprice="{{goodsDetail.price}}">
+        <view class="purchase">
+          <text class="two">¥{{goodsDetail.price}}</text>
+          <text class="one">{{sellparticulars.onlypay}}</text>
+        </view>
+        <!-- <text class="three">（单独购买）</text> -->
+      </view>
+      <!-- share事件会弹出海报生成图片，onShareAppMessage事件是分享微信好友 -->
+      <!-- <view class="wholesale" wx:if="{{fenxiao=='true'}}" bindtap="share">
+        <text class="one">{{sellparticulars.share}}</text>
+      </view> -->
+      <button open-type='share' class='wholesale wholesalebtn' wx:if="{{fenxiao=='true'}}" catchtap="onShareAppMessage">{{sellparticulars.share}}</button>
+      <view class="wholesale" wx:else bindtap="pinTuanOrder" data-buytype="{{1}}" data-id="{{goodsDetail.id}}" data-goodsprice="{{goodsDetail.g_tuan_price}}">
+        <text class="two">¥{{goodsDetail.g_tuan_price}}</text>
+        <text class="one">{{sellparticulars.pintuan}}</text>
+      </view>
+    </view>
+  </view>
+</view>

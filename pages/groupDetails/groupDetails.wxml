@@ -1,0 +1,46 @@
+<!--pages/groupDetails/groupDetails.wxml-->
+<view class="details_box">
+  <view class="hiader">
+    <image src="../../images/chenggong.png"></image>
+    <text>{{groupDetail.addgroupseccess}}</text>
+  </view>
+  <text>{{groupDetail.xuyao}}<text>{{goodsDetails.groupnum - goodsDetails.nownum}}</text>{{groupDetail.cantuan}}，{{groupDetail.share}}</text>
+  <view class="details">
+    <navigator url="../">
+      <image src="{{imgurl}}{{goodsDetails.g_thumb}}"></image>
+      <view class="title">
+        <text>{{goodsDetails.g_name}}</text>
+        <view class="price">
+          <text>{{groupDetail.tuan_price}}:￥{{goodsDetails.g_tuan_price}}</text>
+          <text wx:if="{{language==1}}">{{goodsDetails.groupnum}}{{groupDetail.tuan}}</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="portrait_box">
+    <text class="title">{{groupDetail.grouppeploe}} | {{groupDetail.xuyao}}{{goodsDetails.groupnum - goodsDetails.nownum}}{{groupDetail.pintuan}}</text>
+    <view class="portrait">
+      <text>团长</text>
+      <view class="portrait_list">
+        <image wx:for="{{groupPepoleList}}" wx:key="index" src="{{item.avatar}}"></image>
+        <image wx:for="{{goodsDetails.groupnum - goodsDetails.nownum}}" wx:key="index" src="../../images/touxiang1.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="invite">
+    <view class="time">
+      <view class="ledgement"></view>
+      <view class="residue" wx:if="{{goodsDetails.daojishi != '已结束' }}">
+        <text>{{groupDetail.shengyu}}</text>
+        <text> {{goodsDetails.daojishi}} </text>
+        <text>{{groupDetail.end}}</text>
+      </view>
+      <view wx:else class="residue_end">
+        <text>{{groupDetail.tuan_end}}</text>
+      </view>
+      <view class="ledgement"></view>
+    </view>
+    <button open-type='share' wx:if="{{goodsDetails.daojishi != '已结束'}}">{{groupDetail.yaoqing}}</button>
+    <button open-type='button' wx:else>{{groupDetail.tuan_end}}</button>
+  </view>
+</view>

@@ -1,0 +1,231 @@
+/* pages/seckill/seckill.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.product {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.navbar {
+  flex: none;
+  display: flex;
+  background: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 60rpx;
+  margin-bottom: 20rpx;
+}
+progress {
+  width: 200rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: rgba(133, 133, 133, 1);
+}
+.navbar .item {
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 14px;
+  padding: 0 20rpx;
+  width: 160rpx!important;
+}
+.navbar .item1 {
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 14px;
+  padding: 0 20rpx;
+  width: 220rpx!important;
+}
+
+/* 顶部导航字体颜色 */
+
+.navbar .item.active {
+  color: #e1007e;
+}
+.navbar .item1.active {
+  color: #e1007e;
+}
+
+/* 顶部指示条属性 */
+
+.navbar .item.active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5rpx;
+  background: #e1007e;
+  width: 70%;
+  margin: 0px auto;
+}
+.navbar .item1.active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5rpx;
+  background: #e1007e;
+  width: 70%;
+  margin: 0px auto;
+}
+
+
+.cells {
+  padding-left: 2rpx;
+  box-sizing: border-box;
+}
+
+.cells navigator {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.cells navigator image {
+  width: 312rpx;
+  height: 312rpx;
+  margin-right: 32rpx;
+  background: #f4f4f4;
+}
+
+.cells_text {
+  position: relative;
+  width: 350rpx;
+  height: 312rpx;
+}
+
+.cells_text .describe {
+  margin-top: 30rpx;
+  margin-bottom: 10rpx;
+  max-height: 130rpx;
+  overflow: hidden;
+  width: 350rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.shuliang {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  line-height: 10rpx;
+}
+
+.shuliang .zoushu {
+  display: flex;
+  width: 223rpx;
+  height: 20rpx;
+  background: rgba(252, 159, 161, 1);
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+}
+
+.shuliang .zoushu .shchu {
+  width: 100rpx;
+  height: 20rpx;
+  background: linear-gradient(-89deg,rgba(255, 51, 54, 1), rgba(255, 115, 122, 1));
+  border-radius: 10rpx;
+  text-align: center;
+}
+
+.shuliang .zoushu text {
+  height: 20rpx;
+  font-size: 20rpx;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+  line-height: 20rpx;
+}
+
+.yiqion {
+  height: 21rpx;
+  font-size: 22rpx;
+  font-weight: 400;
+  color: rgba(166, 166, 166, 1);
+  line-height: 40rpx;
+}
+
+.price {
+  margin-top: 20rpx;
+}
+
+.price text:nth-of-type(1) {
+  font-size: 29rpx;
+  font-weight: bold;
+  color: rgba(217, 54, 82, 1);
+  margin-right: 8rpx;
+}
+
+.price text:nth-of-type(2) {
+  font-size: 20rpx;
+  font-weight: 500;
+  color: rgba(133, 133, 133, 1);
+  text-decoration: line-through;
+}
+
+.rob {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.rob text {
+  font-size: 24rpx;
+  color: rgba(51, 51, 51, 1);
+  padding: 0rpx 6rpx;
+}
+.rob .status0,.rob .status1 {
+  font-size: 24rpx;
+  color: rgba(217, 54, 82, 1);
+  padding: 0rpx 6rpx;
+  border: 1px solid rgba(217, 54, 82, 1);
+  border-radius: 6rpx
+}
+
+.rob button {
+  display: block;
+  /* width: 117rpx; */
+  height: 46rpx;
+  background: rgba(217, 54, 82, 1);
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 46rpx;
+  margin: 0;
+}
+
+
+/* 数据空 */
+.dataNull{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dataNull image{
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+.dataNull text{
+  font-size: 28rpx;
+  color: #666;
+}

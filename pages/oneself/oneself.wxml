@@ -1,0 +1,89 @@
+<view>
+  <view class="header">
+    <view class="headImg">
+      <image src="{{avatarUrl}}"></image>
+    </view>
+    <view class="headInfo">
+      <view class="name">{{nickName}}</view>
+      <view class="integral">积分:{{jifenAndYongjin.score}}</view>
+    </view>
+  </view>
+  <view class="numberBox">
+    <ul>
+      <li>{{myPageData.total_commission}}</li>
+      <li>
+        <navigator url="/pages/commission/commission">{{jifenAndYongjin.income}}</navigator>
+      </li>
+    </ul>
+    <ul>
+      <li>{{myPageData.balance}}</li>
+      <li>
+        <navigator url="/pages/balance/balance">{{jifenAndYongjin.money}}</navigator>
+      </li>
+    </ul>
+  </view>
+  <!-- 我的订单 -->
+  <view class="myOrder">
+    <view class="title">
+      <view>{{myPageData.myorder}}</view>
+      <!-- <view class="lookOrder">查看所有订单></view> -->
+      <navigator url="/pages/myOrder/myOrder" class="lookOrder">
+        <text>{{myPageData.lookmore}}</text>
+        <text class="iconfont icon-jiantou3"></text>
+      </navigator>
+    </view>
+    <ul class="orderStatus">
+      <li>
+        <navigator url="/pages/myOrder/myOrder?currentab=1">
+          <image src="../../images/waitPay.png"></image>
+          <text>{{myPageData.unpay}}</text>
+        </navigator>
+      </li>
+      <li>
+        <navigator url="/pages/myOrder/myOrder?currentab=2">
+          <image src="../../images/waitSend.png"></image>
+          <text>{{myPageData.unsend}}</text>
+        </navigator>
+      </li>
+      <li>
+        <navigator url="/pages/myOrder/myOrder?currentab=3">
+          <image src="../../images/send.png"></image>
+          <text>{{myPageData.sended}}</text>
+        </navigator>
+      </li>
+    </ul>
+  </view>
+  <navigator url="/pages/addressManager/addressManager" class="addressManager">
+    <text>{{myPageData.address_title}}</text>
+    <text class="iconfont icon-jiantou3"></text>
+  </navigator>
+  <navigator url="/pages/myFavorite/myFavorite" class="myCollect">
+    <text>{{myPageData.collect_title}}</text>
+    <text class="iconfont icon-jiantou3"></text>
+  </navigator>
+  <view class="yuyan" bindtap="qiehuanyuyan">
+    <text>{{myPageData.language_title}}</text>
+    <text class="iconfont icon-jiantou3"></text>
+  </view>
+  <view class="select" wx:if="{{select}}">
+    <!-- 中文 -->
+    <view wx:if="{{language==1}}">
+      <view bindtap="mySelectLanguage" data-language="1">{{language_country[0].chinese}}</view>
+      <view bindtap="mySelectLanguage" data-language="2">{{language_country[0].italian}}</view>
+      <view bindtap="mySelectLanguage" data-language="3">{{language_country[0].english}}</view>
+    </view>
+    <!-- 意大利语 -->
+    <view wx:elif="{{language==2}}">
+      <view bindtap="mySelectLanguage" data-language="1">{{language_country[1].chinese}}</view>
+      <view bindtap="mySelectLanguage" data-language="2">{{language_country[1].italian}}</view>
+      <view bindtap="mySelectLanguage" data-language="3">{{language_country[1].english}}</view>
+    </view>
+
+    <!-- 英语 -->
+    <view wx:elif="{{language==3}}">
+      <view bindtap="mySelectLanguage" data-language="1">{{language_country[2].chinese}}</view>
+      <view bindtap="mySelectLanguage" data-language="2">{{language_country[2].italian}}</view>
+      <view bindtap="mySelectLanguage" data-language="3">{{language_country[2].english}}</view>
+    </view>
+  </view>
+</view>

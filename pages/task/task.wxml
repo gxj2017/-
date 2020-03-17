@@ -1,0 +1,79 @@
+<!--pages/task/task.wxml-->
+<view class="taskcontainer" wx:if="{{language==1}}">
+  <view class="task">
+    <image src="../../images/xianshanhg_bj@2x.png"></image>
+    <text class="one">{{taskpage.title_bg}}</text>
+    <text class="two">{{taskpage.picktask}}</text>
+  </view>
+  <view class="mission_box">
+    <view class="mission" wx:if="{{onlinTaskList.length !=0 }}">
+      <view class="mis" wx:for="{{onlinTaskList}}" wx:key="id">
+        <view class="mission_left">
+          <image src="../../images/hongjiu@2x.png"></image>
+          <view class="huod">
+            <view class="huod_box">
+              <text class="text_line_1">{{item.g_name}}</text>
+              <icon class="iconfont icon-jinbi"></icon>
+              <text>+{{item.num}}</text>
+            </view>
+            <view class="progress_box">
+              <view class="progress" style="width: {{item.num}}%;"></view>
+              <text>{{item.num}}%</text>
+            </view>
+          </view>
+        </view>
+        <view class="mission_right">
+          <navigator url="/pages/spellParticulars/spellParticulars?goodsid={{item.gid}}&type={{1}}&fenxiao={{true}}">{{taskpage.tocomplete}}</navigator>
+          <navigator url="/pages/rankingList/rankingList?goodsid={{item.gid}}">{{taskpage.ranking}}</navigator>
+        </view>
+      </view>
+    </view>
+    <view class="dataNull" wx:else>
+      <image src="/images/distributorPartner.png"></image>
+      <text>暂无任务可做</text>
+    </view>
+    <view class="explain">
+      <text class="title">{{taskpage.task_specification}}：</text>
+      <text class="text">{{taskpage.task_content}}</text>
+    </view>
+  </view>
+</view>
+<view class="taskcontainer" wx:elif="{{language==2||language==3}}">
+  <view class="task">
+    <image src="../../images/xianshanhg_bj@2x.png"></image>
+    <text class="one1">{{taskpage.title_bg}}</text>
+    <text class="two1">{{taskpage.picktask}}</text>
+  </view>
+  <view class="mission_box">
+    <view class="mission" wx:if="{{onlinTaskList.length !=0 }}">
+      <view class="mis" wx:for="{{onlinTaskList}}" wx:key="id">
+        <view class="mission_left1">
+          <image src="../../images/hongjiu@2x.png"></image>
+          <view class="huod">
+            <view class="huod_box">
+              <text class="text_line_1">{{item.g_name}}</text>
+              <icon class="iconfont icon-jinbi"></icon>
+              <text>+{{item.num}}</text>
+            </view>
+            <view class="progress_box">
+              <view class="progress" style="width: {{item.num}}%;"></view>
+              <text>{{item.num}}%</text>
+            </view>
+          </view>
+        </view>
+        <view class="mission_right1">
+          <navigator url="/pages/spellParticulars/spellParticulars?goodsid={{item.gid}}&type={{1}}&fenxiao={{true}}">{{taskpage.tocomplete}}</navigator>
+          <navigator url="/pages/rankingList/rankingList?goodsid={{item.gid}}">{{taskpage.ranking}}</navigator>
+        </view>
+      </view>
+    </view>
+    <view class="dataNull" wx:else>
+      <image src="/images/distributorPartner.png"></image>
+      <text>暂无任务可做</text>
+    </view>
+    <view class="explain">
+      <text class="title">{{taskpage.task_specification}}：</text>
+      <text class="text">{{taskpage.task_content}}</text>
+    </view>
+  </view>
+</view>

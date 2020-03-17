@@ -1,0 +1,198 @@
+/* pages/groupDetails/groupDetails.wxss */
+
+page {
+  background-color: #fafafa;
+}
+
+.hiader {
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 1);
+  padding-top: 20rpx;
+}
+
+.hiader image {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 15rpx;
+}
+
+.hiader text {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(217, 54, 82, 1);
+}
+
+.details_box >text {
+  display: flex;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: rgba(133, 133, 133, 1);
+  padding: 20rpx 30rpx 40rpx;
+  background: rgba(255, 255, 255, 1);
+}
+
+.details_box >text text {
+  color: #d93652;
+}
+
+.details {
+  width: 100%;
+  height: 234rpx;
+  background: rgba(255, 255, 255, 1);
+  margin-top: 20rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.details navigator {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+navigator image {
+  width: 179rpx;
+  height: 178rpx;
+  border-radius: 4rpx;
+}
+
+.details .title>text {
+  display: block;
+  width: 482rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: rgba(33, 33, 33, 1);
+  line-height: 39rpx;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price text:nth-of-type(1) {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: rgba(217, 54, 82, 1);
+}
+
+.price text:nth-of-type(2) {
+  display: block;
+  width: 97rpx;
+  height: 40rpx;
+  background: rgba(217, 54, 82, 1);
+  border-radius: 4rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+}
+
+.portrait_box {
+  margin-top: 20rpx;
+  width: 750rpx;
+  height: 354rpx;
+  background: rgba(255, 255, 255, 1);
+  padding: 20rpx 30rpx 0 30rpx;
+  box-sizing: border-box;
+}
+
+.portrait_box .title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: rgba(133, 133, 133, 1);
+}
+
+.portrait {
+  position: relative;
+}
+
+.portrait text {
+  display: block;
+  position: absolute;
+  top: 84rpx;
+  left: 35rpx;
+  width: 69rpx;
+  background: rgba(255, 171, 51, 1);
+  border: 1rpx solid rgba(255, 171, 51, 1);
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+}
+
+.portrait_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.portrait_list image {
+  width: 98rpx;
+  height: 98rpx;
+  border-radius: 50%;
+  margin: 15rpx 20rpx;
+}
+
+.invite {
+  margin-top: 110rpx;
+}
+
+.invite .time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: rgba(31, 31, 31, 1);
+}
+
+.residue text {
+  display: block;
+  height: 40rpx;
+  border-radius: 5rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  padding: 0 5rpx;
+  text-align: center;
+}
+.residue text:first-of-type {
+  color: #333;
+}
+.residue text:nth-of-type(2) {
+  background: rgba(0, 0, 0, 1);
+}
+.residue text:last-of-type {
+  color: #333;
+}
+.residue_end text{
+  font-size: 30rpx;
+  color: #d93652;
+  font-weight: bold;
+}
+.ledgement {
+  width: 130rpx;
+  height: 2rpx;
+  background: rgba(0, 0, 0, 1);
+  margin: 20rpx;
+}
+
+.residue {
+  display: flex;
+}
+
+.invite button {
+  width: 684rpx;
+  height: 86rpx;
+  background: rgba(217, 54, 82, 1);
+  border-radius: 43rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 50rpx;
+}

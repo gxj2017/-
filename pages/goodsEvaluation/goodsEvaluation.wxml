@@ -1,0 +1,39 @@
+<!--pages/goodsEvaluation/goodsEvaluation.wxml-->
+<view class="goodsEvaluation">
+  <view class="goodsEvaluation_main">
+    <view class="goodsEvaluation_main_goods">
+      <view class="goodsEvaluation_main_goods_left">
+        <image src="{{imgurl}}{{goodsDetail.g_thumb}}"></image>
+      </view>
+      <view class="goodsEvaluation_main_goods_right">
+        <view class="title text_line_2">{{goodsDetail.g_name}}</view>
+        <view class="guige text_line_1">{{goodsDetail.g_num}}件</view>
+        <view class="price">￥{{goodsDetail.singleprice}}</view>
+      </view>
+    </view>
+    <view class="evaluationTag">
+      <view class="evaluationTag_tagTitle">选择标签</view>
+      <view class="evaluationTag_content">
+        <view class="evaluationTag_content_tagItem {{currentTag==index?'selectTag':''}}" wx:for="{{evaluationTag}}" wx:key="index" data-index="{{index}}" data-tag="{{item}}" bindtap="selectTag">{{item}}</view>
+      </view>
+    </view>
+    <view class="goodsEvaluation_main_evaluation">
+      <textarea placeholder="亲，期待您的好评~~~" bindinput="evaluationContent" data-evaluationContent="evaluationContent" bindblur="contentLength" />
+      <view class="notice">（不少于10字）</view>
+    </view>
+    <view class="goodsEvaluation_main_pic">
+      <view class='uploader_img flex' wx:if="{{pics}}">
+        <view class='upAdd' bindtap='chooseImg'>
+          <image src='../../images/uptupian.png' mode="widthFix" />
+        </view>
+        <view class='uploader_list' wx:for="{{pics}}" wx:key="item.length">
+          <image src='{{imgurl}}{{item}}' class="updatedPic" data-index="{{index}}" mode="aspectFill" bindtap='previewImg1' />
+          <image class='delete' data-index="{{index}}" src='../../images/delIcon.png' mode="widthFix" bindtap='deleteImg' />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="submitEvaluation_btn" bindtap="submitEvaluation">
+    提交评价
+  </view>
+</view>

@@ -1,0 +1,104 @@
+<!--pages/indentParticulars/indentParticulars.wxml-->
+<view class="indentParticulars">
+  <view class="logistics">
+    <view class="particulars">
+      <image src="../../images/wuliu.png"></image>
+      <view class="right" wx:if="{{orderDetail.status==0}}">
+        <text>您的订单尚未付款</text>
+        <text>创建时间：{{orderDetail.addtime}}</text>
+      </view>
+      <view class="right" wx:if="{{orderDetail.status==1}}">
+        <text>您的订单尚未发货</text>
+        <text>创建时间：{{orderDetail.addtime}}</text>
+      </view>
+      <view class="right" wx:if="{{orderDetail.status==2}}">
+        <text>您的订单已经发货</text>
+        <text>创建时间：{{orderDetail.addtime}}</text>
+      </view>
+      <view class="right" wx:if="{{orderDetail.status==3}}">
+        <text>您的订单已收货，未评价</text>
+        <text>创建时间：{{orderDetail.addtime}}</text>
+      </view>
+      <view class="right" wx:elif="{{orderDetail.status==4}}">
+        <text>您的订完成</text>
+        <text>{{orderDetail.completetime}}</text>
+      </view>
+    </view>
+    <view class="site" wx:if="{{is_tihuo==0}}">
+      <image src="../../images/weizhi.png"></image>
+      <view class="site_right">
+        <text><text class="name">{{orderDetail.username}}</text>
+        <text>{{orderDetail.mobile}}</text></text>
+        <text>{{orderDetail.address}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="goods">
+    <text>订单编号：{{orderDetail.orderno}}</text>
+    <view class="commodity_box">
+      <image src="{{imgurl}}{{orderDetail.g_thumb}}" />
+      <view class="commodity">
+        <text class="text_line_2">{{orderDetail.g_name}}</text>
+        <view class="pirce">
+          <text>￥{{orderDetail.singleprice}}</text>
+          <text>x {{orderDetail.g_num}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="freight">
+      <text>运费</text>
+      <text>￥0.00</text>
+    </view>
+    <view class="payment">
+      <text>实付款</text>
+      <text>￥{{orderDetail.totalprice}}</text>
+    </view>
+    <!-- <view class="refund">
+      <text>退款</text>
+    </view> -->
+  </view>
+  <!-- <view class="Crowdordering">
+    <text>拼单成功</text>
+    <view class="picture">
+      <image src="../../images/headImg.png"/>
+      <image  src="../../images/headImg.png" />
+      <text>></text>
+    </view>
+  </view> -->
+  <view class="orderInformation">
+    <text class="title">订单信息</text>
+    <view class="Information">
+      <text>订单编号：{{orderDetail.orderno}}</text>
+      <text>创建时间：{{orderDetail.addtime}}</text>
+      <text>成交时间：{{orderDetail.completetime}}</text>
+    </view>
+  </view>
+  <!-- <view class="operation">
+    <text>查看物流</text>
+    <text>确认收货</text>
+  </view> -->
+    <!-- quxiao: "取消订单",
+    pay: "付款",
+    unpay: "待付款",
+    unsend: "待发货",
+    sended: "已发货",
+    unevulation: "待评价",
+    tuikuanbtn: "申请退款",
+    tixingfahuo: "提醒发货",
+    chakanwuliu: "查看物流",
+    confirm: "确认收货",
+    delorder: "删除订单", -->
+  <view class="btnsBottom1">
+        <view class='cancel cancel1' wx:if="{{orderDetail.status==0}}" data-orderid="{{orderDetail.id}}" catchtap="cancelOrder">取消订单</view>
+        <view class='cost cost' wx:if="{{orderDetail.status==0}}" data-orderitem="{{orderDetail}}" catchtap="payOrder">付款</view>
+        <!-- 代发货 -->
+        <view class='cancel cancel1' wx:if="{{orderDetail.status==1}}"  catchtap="applicationForDrawback">申请退款</view>
+        <view class='cost cost' wx:if="{{orderDetail.status==1}}" catchtap="noticeSend">提醒发货</view>
+        <!-- 已发货 -->
+        <view class='cancel cancel1' wx:if="{{orderDetail.status==2}}"  bindtap="checkwuliu">查看物流</view>
+        <view class='cost cost' wx:if="{{orderDetail.status==2}}" data-orderid="{{orderDetail.id}}" catchtap="confirmOrder">确认收货</view>
+        <!-- 代发货 -->
+        <view class='cancel cancel1' wx:if="{{orderDetail.status==3}}" data-orderid="{{orderDetail.id}}" catchtap="delOrder">删除订单</view>
+        <view class='cost cost' wx:if="{{orderDetail.status==3}}" data-orderitem="{{orderDetail}}" catchtap="evaluation">评价</view>
+      </view>
+</view>

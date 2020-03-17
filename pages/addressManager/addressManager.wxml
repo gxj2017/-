@@ -1,0 +1,20 @@
+<view class='addressContent'>
+  <view class='addressItem' wx:for="{{addressContent}}" wx:key="index">
+    <view class='addressInfo'>
+        <view>
+          <text class='name'>{{item.uname}}</text>
+          <text class='phone'>{{item.phone}}</text>
+        </view>
+        <view class='area'>
+          <text class="area_left" wx:if="{{item.is_default==1}}">默认地址</text>
+          <text>{{item.receive_address}}</text>
+        </view>
+        <view class='address'>{{item.detail_address}}</view>
+    </view>
+    <view class='edit' >
+      <view bindtap="editorAddress"  id="{{item.id}}">编辑</view>
+      <view bindtap="deleteAddress"  id="{{item.id}}">删除</view>
+    </view>
+  </view>
+  <button  bindtap="goAddAddress"><text class="iconfont icon-iconjia"></text>添加收货地址</button>
+</view>

@@ -1,0 +1,82 @@
+<view wx:if="{{language==1}}" class="product">
+  <swiper class="navbar">
+    <swiper-item wx:for="{{navbar}}" data-idx="{{item.id}}" class="item {{currentTab==item.id ? 'active' : ''}}" wx:key="unique" data-starttime="{{item.start_time}}"  data-endtime="{{item.end_time}}" bindtap="navbarTap">
+      {{item.starttime}}{{miaoshapage.snap_up}}
+    </swiper-item>
+  </swiper>
+  <view class="cells" wx:if="{{commodity.list.length !=0}}">
+    <navigator wx:for="{{commodity.list}}" url="/pages/seckillParticulars/seckillParticulars?mkfl=miaosha&miao_id={{currentTab}}&goodsid={{item.g_id}}&miaostatus={{commodity.status}}&type=3&buytype=2"  wx:key="id">
+      <image src="{{imgurl}}{{item.g_thumb}}"></image>
+      <view class="cells_text">
+        <text class="describe text_line_3">{{item.g_name}}</text>
+        <view class="shuliang">
+          <!-- <view class="zoushu">
+            <view class="shchu" style="width: 50%;">
+              <text class="shu_text">已售空</text>
+            </view>
+            <text>46%</text>
+          </view> -->
+          <progress percent="{{item.jidu}}" show-info color="#ff6714" font-size="12"/>
+          <text class="yiqion">{{miaoshapage.sold}}:{{item.salenum}}{{miaoshapage.jian}}</text>
+        </view>
+        <view class="price">
+          <text>￥{{item.price}}</text>
+          <!-- <text>￥{{item.g_price}}</text> -->
+        </view>
+        <view class="rob">
+          <text class="status0" wx:if="{{commodity.status==0}}">{{miaoshapage.end}}</text>
+          <text class="status1" wx:if="{{commodity.status==1}}">{{daojishi}}</text>
+          <text wx:if="{{commodity.status==2}}"></text>
+          <button wx:if="{{commodity.status==2}}">{{miaoshapage.time_has_not_yet}}</button>
+          <button wx:if="{{commodity.status==1}}">{{miaoshapage.buy}}</button>
+          <button wx:if="{{commodity.status==0}}">{{miaoshapage.miaosha_end}}</button>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="dataNull" wx:else>
+    <image src="/images/distributorPartner.png"></image>
+    <text>该时间段暂无秒杀商品</text>
+  </view>
+</view>
+<view wx:elif="{{language==2||language==3}}" class="product">
+  <swiper class="navbar">
+    <swiper-item wx:for="{{navbar}}" data-idx="{{item.id}}" class="item1 {{currentTab==item.id ? 'active' : ''}}" wx:key="unique" data-starttime="{{item.start_time}}"  data-endtime="{{item.end_time}}" bindtap="navbarTap">
+      {{item.starttime}}{{miaoshapage.snap_up}}
+    </swiper-item>
+  </swiper>
+  <view class="cells" wx:if="{{commodity.list.length !=0}}">
+    <navigator wx:for="{{commodity.list}}" url="/pages/seckillParticulars/seckillParticulars?mkfl=miaosha&miao_id={{currentTab}}&goodsid={{item.g_id}}&miaostatus={{commodity.status}}&type=3&buytype=2"  wx:key="id">
+      <image src="{{imgurl}}{{item.g_thumb}}"></image>
+      <view class="cells_text">
+        <text class="describe text_line_3">{{item.g_name}}</text>
+        <view class="shuliang">
+          <!-- <view class="zoushu">
+            <view class="shchu" style="width: 50%;">
+              <text class="shu_text">已售空</text>
+            </view>
+            <text>46%</text>
+          </view> -->
+          <progress percent="{{item.jidu}}" show-info color="#ff6714" font-size="12"/>
+          <text class="yiqion">{{miaoshapage.sold}}:{{item.salenum}}</text>
+        </view>
+        <view class="price">
+          <text>￥{{item.price}}</text>
+          <!-- <text>￥{{item.g_price}}</text> -->
+        </view>
+        <view class="rob">
+          <text class="status0" wx:if="{{commodity.status==0}}">{{miaoshapage.end}}</text>
+          <text class="status1" wx:if="{{commodity.status==1}}">{{daojishi}}</text>
+          <text wx:if="{{commodity.status==2}}"></text>
+          <button wx:if="{{commodity.status==2}}">{{miaoshapage.time_has_not_yet}}</button>
+          <button wx:if="{{commodity.status==1}}">{{miaoshapage.buy}}</button>
+          <button wx:if="{{commodity.status==0}}">{{miaoshapage.miaosha_end}}</button>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="dataNull" wx:else>
+    <image src="/images/distributorPartner.png"></image>
+    <text>该时间段暂无秒杀商品</text>
+  </view>
+</view>
